@@ -67,6 +67,7 @@ header, footer {
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
+    justify-content: left;
   }
   
   .nav-links {
