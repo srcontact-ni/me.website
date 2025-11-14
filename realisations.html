@@ -76,5 +76,37 @@
     <p>&copy; 2025 Sarobidy</p>
 </footer>
 <script src="script/main.js"></script>
+<script>
+    // Generation des cards depuis assets/projects.json
+    (function loadCards(){
+      fetch('assets/projects.json')
+        .then(r => r.json())
+        .then(projects => {
+          const container = document.getElementById('cardsContainer');
+          projects.forEach(p => {
+            const card = document.createElement('article');
+            card.className = 'card';
+            card.innerHTML = `
+              <a class="card-link" href="project.html?id=${encodeURIComponent(p.ID)}">
+                <img src="${p.Image}" alt="${p.NomProjet}" />
+                <div class="card-content">
+                  <h3>${p.NomProjet}</h3>
+                  <p class="short-desc">${p.ShortDesc}</p>
+                  <div class="tags">
+                    <span class="tag">${p.Secteur}</span>
+                    <span class="tag tag-duration">${p.Duree}</span>
+                  </div>
+                </div>
+              </a>
+            `;
+            container.appendChild(card);
+          });
+        })
+        .catch(err => {
+          console.error("Impossible de charger les projets :", err);
+          document.getElementById('cardsContainer').innerHTML = '<p>Impossible de charger les projets.</p>';
+        });
+    })();
+  </script>
 </body>
 </html>

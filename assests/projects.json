@@ -1,0 +1,55 @@
+[
+    {
+      "ID": "logishotels",
+      "NomProjet": "Logis Hôtels",
+      "ShortDesc": "Intégration et optimisation des pages coffrets cadeaux, refonte des contenus.",
+      "PhraseAccroche": "Augmenter les conversions via une expérience coffret pensée UX",
+      "AProposEntreprise": "Logis Hôtels est un réseau d'hôtels indépendants souhaitant moderniser sa vente de coffrets cadeaux et améliorer l'expérience client en ligne.",
+      "Missions": [
+        "Intégrer les contenus sous Joomla",
+        "Créer les pages d'atterrissage",
+        "Optimiser l'e-merchandising",
+        "Tester et recetter les parcours utilisateur"
+      ],
+      "Secteur": "Hôtellerie",
+      "Localisation": "Paris",
+      "Duree": "Oct 2023 - Déc 2024",
+      "Image": "assets/images/logis.jpg",
+      "LienExterne": "https://logishotels.example"
+    },
+    {
+      "ID": "etikashion",
+      "NomProjet": "Etikashion",
+      "ShortDesc": "Création de la boutique sous Joomla, rédaction SEO et mise en place de Google Analytics.",
+      "PhraseAccroche": "E-commerce responsable, optimisé pour le SEO",
+      "AProposEntreprise": "Etikashion est une boutique en ligne de mode éthique.",
+      "Missions": [
+        "Création de la boutique",
+        "Rédaction SEO",
+        "Intégration Analytics"
+      ],
+      "Secteur": "E-commerce",
+      "Localisation": "Lyon",
+      "Duree": "Jan 2023 - Avr 2023",
+      "Image": "assets/images/etikashion.jpg",
+      "LienExterne": ""
+    },
+    {
+      "ID": "maisonaudio",
+      "NomProjet": "Maison Audio Center",
+      "ShortDesc": "Site vitrine optimisé SEO pour un commerce audio haut de gamme.",
+      "PhraseAccroche": "Valoriser produits audio premium par une mise en page épurée",
+      "AProposEntreprise": "Commerce local spécialisé en audio haut de gamme.",
+      "Missions": [
+        "Audit SEO",
+        "Refonte visuelle",
+        "Intégration des fiches produits"
+      ],
+      "Secteur": "Retail",
+      "Localisation": "Paris",
+      "Duree": "Mai 2022 - Juil 2022",
+      "Image": "assets/images/maisonaudio.jpg",
+      "LienExterne": ""
+    }
+  ]
+  

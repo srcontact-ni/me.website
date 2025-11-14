@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Détails projet</title>
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+<body>
+  <header> ... ton header ... </header>
+
+  <main class="project-detail">
+    <div class="container">
+      <div class="project-header">
+        <h1 id="projectName">Nom du projet</h1>
+        <p id="shortDesc" class="short-desc"></p>
+        <p id="phraseAccroche" class="phrase-accroche"></p>
+      </div>
+
+      <div class="project-grid">
+        <section class="project-main">
+          <h2>À propos</h2>
+          <p id="projectAbout"></p>
+
+          <h2>Mes missions</h2>
+          <div id="projectMissions" class="missions-list"></div>
+        </section>
+
+        <aside class="project-card-static">
+          <h3>Informations</h3>
+          <div><strong>Secteur :</strong> <span id="projectSecteur"></span></div>
+          <div><strong>Localisation :</strong> <span id="projectLocalisation"></span></div>
+          <div><strong>Durée :</strong> <span id="projectDuree"></span></div>
+          <div><strong>Client :</strong> <span id="projectClient"></span></div>
+          <div id="projectLink"></div>
+        </aside>
+      </div>
+
+      <section>
+        <h2>Autres réalisations</h2>
+        <div id="relatedProjects" class="cards-container"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer> ... ton footer ... </footer>
+
+  <script src="script/main.js"></script>
+  <script>
+    // Lire l'ID dans l'URL
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    fetch('assets/projects.json')
+      .then(r => r.json())
+      .then(projects => {
+        const project = projects.find(p => p.ID === id);
+        if (!project) {
+          document.querySelector('.container').innerHTML = '<p>Projet non trouvé.</p>';
+          return;
+        }
+
+        // Remplir les champs
+        document.getElementById('projectName').textContent = project.NomProjet;
+        document.getElementById('shortDesc').textContent = project.ShortDesc;
+        document.getElementById('phraseAccroche').textContent = project.PhraseAccroche;
+        document.getElementById('projectAbout').textContent = project.AProposEntreprise || '';
+        document.getElementById('projectSecteur').textContent = project.Secteur || '';
+        document.getElementById('projectLocalisation').textContent = project.Localisation || '';
+        document.getElementById('projectDuree').textContent = project.Duree || '';
+        document.getElementById('projectClient').textContent = project.NomProjet;
+        if (project.LienExterne) {
+          document.getElementById('projectLink').innerHTML = `<a href="${project.LienExterne}" target="_blank">Voir le projet</a>`;
+        }
+
+        // Missions (affiche en gros avec séparateurs fins)
+        const missionsContainer = document.getElementById('projectMissions');
+        missionsContainer.innerHTML = '';
+        project.Missions.forEach(m => {
+          const div = document.createElement('div');
+          div.className = 'mission-item';
+          div.textContent = m;
+          missionsContainer.appendChild(div);
+        });
+
+        // Related projects
+        const related = document.getElementById('relatedProjects');
+        projects.filter(p => p.ID !== id).forEach(p => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <a href="project.html?id=${encodeURIComponent(p.ID)}">
+              <img src="${p.Image}" alt="${p.NomProjet}">
+              <div class="card-content">
+                <h3>${p.NomProjet}</h3>
+                <p>${p.ShortDesc}</p>
+              </div>
+            </a>
+          `;
+          related.appendChild(card);
+        });
+      })
+      .catch(err => {
+        console.error("Erreur chargement projet :", err);
+        document.querySelector('.container').innerHTML = '<p>Impossible de charger les données.</p>';
+      });
+  </script>
+</body>
+</html>
