@@ -103,29 +103,34 @@ header, footer {
   }
 }
 
-.submenu {
+/* Sous-menu */
+.navbar .has-submenu {
+  position: relative;
+}
+
+.navbar .submenu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background: #f9f9f9;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-  padding: 0.5rem 0;
+  background-color: #222;
+  padding: 10px 0;
+  list-style: none;
   min-width: 200px;
-  z-index: 10;
+  z-index: 1000;
 }
 
-.nav-links li:hover > .submenu {
+.navbar .submenu li {
+  padding: 5px 20px;
+}
+
+.navbar .submenu li a {
+  color: #fff;
+  font-weight: normal;
+}
+
+.navbar .has-submenu:hover .submenu {
   display: block;
-}
-
-.submenu li {
-  padding: 0.5rem 1rem;
-}
-
-.submenu li a {
-  color: #333;
-  font-size: 0.95rem;
 }
 
 /* Section générale */
@@ -375,7 +380,7 @@ section {
 
 @media (max-width: 600px) {
   .card {
-    width: 90%;
+    width: 100%;
     max-height: none;
   }
 }

@@ -58,3 +58,18 @@ function initSiteScripts() {
     });
   });
 }
+
+// Scroll vers la section et active le service correspondant au clic dans le menu
+document.querySelectorAll('.submenu a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href').replace('#', '');
+    const targetBtn = document.getElementById(targetId);
+
+    if(targetBtn) {
+      targetBtn.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      targetBtn.click(); // active le contenu dynamique
+    }
+  });
+});
+

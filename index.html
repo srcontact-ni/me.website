@@ -16,7 +16,16 @@
       <div class="nav-toggle" id="navToggle">☰</div>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li class="has-submenu">
+          <a href="services.html">Services</a>
+          <ul class="submenu">
+            <li><a href="#seo">Optimisation SEO</a></li>
+            <li><a href="#content">Gestion de contenu web</a></li>
+            <li><a href="#uxui">UX / UI Design</a></li>
+            <li><a href="#creation">Création de sites et d’interfaces</a></li>
+            <li><a href="#analyse">Analyse des parcours utilisateurs</a></li>
+          </ul>
+        </li>
         <li class="has-submenu">
           <a href="realisations.html">Réalisations</a>
           <ul class="submenu" id="projectsSubmenu"></ul>
@@ -40,12 +49,12 @@
       
       <!-- Colonne gauche : titres -->
       <div class="services-list">
-        <button class="service-item active" data-service="seo">Optimisation SEO</button>
-        <button class="service-item" data-service="content">Gestion de contenu web</button>
-        <button class="service-item" data-service="uxui">UX / UI Design</button>
-        <button class="service-item" data-service="creation">Création de sites et d’interfaces</button>
-        <button class="service-item" data-service="analyse">Analyse des parcours utilisateurs</button>
-      </div>
+        <button class="service-item active" data-service="seo" id="seo">Optimisation SEO</button>
+        <button class="service-item" data-service="content" id="content">Gestion de contenu web</button>
+        <button class="service-item" data-service="uxui" id="uxui">UX / UI Design</button>
+        <button class="service-item" data-service="creation" id="creation">Création de sites et d’interfaces</button>
+        <button class="service-item" data-service="analyse" id="analyse">Analyse des parcours utilisateurs</button>
+      </div>      
       
       <!-- Colonne droite : contenu dynamique -->
       <div class="service-detail" id="serviceDetail">
