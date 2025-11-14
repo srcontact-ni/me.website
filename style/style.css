@@ -115,6 +115,7 @@ header, footer {
   left: 0;
   background-color: #222;
   padding: 10px 0;
+  justify-content: left;
   list-style: none;
   min-width: 200px;
   z-index: 1000;
