@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Charger le header
-fetch('partials/header.html')
+fetch('Partials/header.html')
   .then(response => response.text())
   .then(data => {
     document.getElementById('header').innerHTML = data;
@@ -19,7 +19,7 @@ fetch('partials/header.html')
   .catch(err => console.error("Erreur chargement header :", err));
 
 // Charger le footer
-fetch('partials/footer.html')
+fetch('Partials/footer.html')
   .then(response => response.text())
   .then(data => {
     document.getElementById('footer').innerHTML = data;
