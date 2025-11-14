@@ -82,7 +82,7 @@ header, footer {
     padding-top: 60px;
     transition: left 0.3s ease;
     z-index: 1000;
-    justify-content: left;
+    align-items: left;
   }
   
   .nav-links li {
