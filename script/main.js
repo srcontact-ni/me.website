@@ -10,18 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Charger header et footer
-document.addEventListener("DOMContentLoaded", () => {
-  fetch("partials/header.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("header").innerHTML = data;
-    });
+// Charger le header
+fetch('partials/header.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
+  })
+  .catch(err => console.error("Erreur chargement header :", err));
 
-  fetch("partials/footer.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("footer").innerHTML = data;
-    });
-});
+// Charger le footer
+fetch('partials/footer.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('footer').innerHTML = data;
+  })
+  .catch(err => console.error("Erreur chargement footer :", err));
 
