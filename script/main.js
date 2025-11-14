@@ -1,18 +1,20 @@
 console.log("JavaScript chargé ✅");
 
+// Exemple : un clic sur un bouton qui affiche un message
+document.addEventListener("DOMContentLoaded", () => {
+  const accueilBtn = document.querySelector("header h1");
+  if (accueilBtn) {
+    accueilBtn.addEventListener("click", () => {
+      alert("Bienvenue sur mon portfolio !");
+    });
+  }
+});
+
 // Charger le header
 fetch('partials/header.html')
   .then(response => response.text())
   .then(data => {
     document.getElementById('header').innerHTML = data;
-
-    // Menu hamburger après injection du header
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
   })
   .catch(err => console.error("Erreur chargement header :", err));
 
@@ -23,3 +25,4 @@ fetch('partials/footer.html')
     document.getElementById('footer').innerHTML = data;
   })
   .catch(err => console.error("Erreur chargement footer :", err));
+
