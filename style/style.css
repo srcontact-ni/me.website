@@ -13,7 +13,8 @@ header, footer {
   padding: 15px;
 }
 
-/* Navbar globale */
+   NAVBAR GLOBAL + MOBILE
+------------------------------ */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -21,18 +22,13 @@ header, footer {
   background: #222;
   color: #fff;
   padding: 10px 20px;
-  font-weight: bold; /* tout le texte de la navbar en bold */
-}
-
-.nav-logo {
   font-weight: bold;
-  font-size: 1.2em;
 }
 
 .nav-logo a {
   color: #fff;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .nav-links {
@@ -44,7 +40,7 @@ header, footer {
 
 .nav-links li {
   margin: 0 10px;
-  position: relative; /* nécessaire pour les sous-menus */
+  position: relative;
 }
 
 .nav-links a {
@@ -57,7 +53,7 @@ header, footer {
 
 .nav-links a:hover {
   text-decoration: underline;
-  background: none; /* plus d’effet bouton */
+  background: none;
   border-radius: 0;
 }
 
@@ -69,11 +65,11 @@ header, footer {
 }
 
 /* Sous-menu */
-.navbar .has-submenu {
+.has-submenu {
   position: relative;
 }
 
-.navbar .submenu {
+.submenu {
   display: none;
   position: absolute;
   top: 100%;
@@ -85,7 +81,7 @@ header, footer {
   z-index: 1000;
 }
 
-.navbar .submenu li a {
+.submenu li a {
   color: #fff;
   font-weight: bold;
   display: block;
@@ -93,18 +89,13 @@ header, footer {
   text-align: left;
 }
 
-.navbar .submenu li a:hover {
-  text-decoration:underline;
-  background-color: none;
-  border-radius: 0px;
-}
-
-/* Afficher le sous-menu au hover sur desktop */
-.navbar .has-submenu:hover .submenu {
+.has-submenu:hover .submenu {
   display: block;
 }
 
-/* Media Queries mobile */
+/* ------------------------------
+   MOBILE
+------------------------------ */
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
@@ -123,32 +114,32 @@ header, footer {
     z-index: 1000;
   }
 
-  .nav-links li {
-    margin: 15px 0;
-  }
-
-  .nav-links a {
-    font-size: 1.2em;
-    padding: 10px 20px;
-  }
-
   .nav-links.active {
     left: 0;
   }
 
-  /* Sous-menu mobile toggle */
-  .navbar .has-submenu .submenu {
+  .nav-links li {
+    margin: 0;
+  }
+
+  .nav-links a {
+    font-size: 1.2em;
+    padding: 12px 20px;
+    text-align: left; /* forcer alignement gauche mobile */
+  }
+
+  .has-submenu .submenu {
     position: relative;
     top: 0;
     left: 0;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 0;
     min-width: 100%;
+    padding: 0;
   }
 
-  .navbar .has-submenu .submenu li a {
+  .has-submenu .submenu li a {
     padding-left: 30px;
+    font-weight: bold;
+    text-align: left; /* forcer alignement gauche */
   }
 
   body.menu-open {
@@ -156,27 +147,12 @@ header, footer {
   }
 }
 
-/* Section générale */
-section {
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* SECTION SERVICES */
-.services {
-  padding: 60px 20px;
-  text-align: left;
-}
-
-.services h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
-}
-
+/* ------------------------------
+   SECTION SERVICES
+------------------------------ */
 .services-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* aligné à gauche */
   align-items: flex-start;
   gap: 40px;
   flex-wrap: wrap;
@@ -186,71 +162,60 @@ section {
 .services-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   width: 280px;
-  max-width: 90%;
+  margin-top: 0; /* retirer marge qui décale vers le haut */
+  padding-top: 0; /* aligné avec la colonne droite */
 }
 
 .service-item {
   background: #fff;
-  border: 2px solid #007BFF;
-  color: #007BFF;
-  font-weight: 600;
-  padding: 12px 16px;
-  border-radius: 12px;
+  border: 2px solid #333; /* sombre */
+  color: #333;
+  font-weight: bold;
+  padding: 12px 16px; /* ajusté */
+  border-radius: 0; /* plus d’effet bouton */
   text-align: left;
-  transition: all 0.3s ease;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .service-item:hover,
 .service-item.active {
-  background: #007BFF;
+  background: #222;
   color: #fff;
 }
 
 /* Colonne droite */
 .service-detail {
   background: #fff;
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   width: 500px;
   max-width: 100%;
   min-height: 200px;
   padding: 30px;
   text-align: left;
-  transition: all 0.3s ease;
 }
 
-.service-detail h3 {
-  color: #333;
-  margin-bottom: 15px;
-  font-size: 1.4rem;
-}
-
-.service-detail p {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* Responsive */
+/* Responsive services */
 @media (max-width: 900px) {
   .services-container {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* aligné à gauche même sur mobile */
   }
 
   .services-list {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     width: 100%;
+    justify-content: flex-start;
   }
 
   .service-item {
-    width: 45%;
-    text-align: center;
+    width: auto;
+    text-align: left; /* aligné gauche mobile */
+    margin-right: 15px;
   }
 
   .service-detail {
