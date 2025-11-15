@@ -57,8 +57,8 @@ header, footer {
 
 .nav-links a:hover {
   text-decoration: underline;
-  background-color: rgba(255,255,255,0.1);
-  border-radius: 6px;
+  background: none; /* plus d’effet bouton */
+  border-radius: 0;
 }
 
 /* Hamburger */
@@ -79,30 +79,24 @@ header, footer {
   top: 100%;
   left: 0;
   background-color: #222;
-  padding: 10px 0;
+  padding: 0;
   list-style: none;
   min-width: 220px;
   z-index: 1000;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.navbar .submenu li {
-  padding: 8px 20px;
-  text-align: left;
 }
 
 .navbar .submenu li a {
   color: #fff;
   font-weight: bold;
   display: block;
+  padding: 8px 20px;
+  text-align: left;
 }
 
 .navbar .submenu li a:hover {
-  background-color: #007BFF;
-  color: #fff;
-  border-radius: 4px;
-  padding-left: 24px;
+  text-decoration:underline;
+  background-color: none;
+  border-radius: 0px;
 }
 
 /* Afficher le sous-menu au hover sur desktop */
