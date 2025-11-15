@@ -119,11 +119,12 @@ body.menu-open {
 
 .navbar .submenu li { 
   padding: 5px 20px; 
+  text-align: left;
 } 
 
 .navbar .submenu li a { 
   color: #fff; 
-  font-weight: normal; 
+  font-weight: bold; 
 } 
 
 .navbar .has-submenu:hover .submenu { 
