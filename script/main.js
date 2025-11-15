@@ -19,6 +19,21 @@ function initSiteScripts() {
     });
   }
 
+  // ------------------------------
+// MENU MOBILE (Hamburger)
+// ------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const navToggle = document.getElementById("navToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  }
+});
+
+
   // --- Scripts Services ---
   const serviceButtons = document.querySelectorAll(".service-item");
   const serviceDetail = document.getElementById("serviceDetail");
