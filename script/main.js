@@ -1,28 +1,10 @@
-console.log("JavaScript chargé sur GitHub Pages ✅");
+console.log("JavaScript chargé ✅");
 
-// Tout ton JavaScript directement
-initSiteScripts();
-
-
-// -----------------------------------------------------------
-//  FONCTION PRINCIPALE
-// -----------------------------------------------------------
-function initSiteScripts() {
-
-  console.log("Scripts du site initialisés.");
-
-  // Exemple accueil
-  const accueilBtn = document.querySelector("header h1");
-  if (accueilBtn) {
-    accueilBtn.addEventListener("click", () => {
-      alert("Bienvenue sur mon portfolio !");
-    });
-  }
+document.addEventListener("DOMContentLoaded", () => {
 
   // ------------------------------
-// MENU MOBILE (Hamburger)
-// ------------------------------
-document.addEventListener("DOMContentLoaded", () => {
+  // MENU MOBILE (Hamburger)
+  // ------------------------------
   const navToggle = document.getElementById("navToggle");
   const navLinks = document.getElementById("navLinks");
 
@@ -31,33 +13,64 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.classList.toggle("active");
     });
   }
-});
 
+  // ------------------------------
+  // SOUS-MENUS
+  // ------------------------------
+  const submenuParents = document.querySelectorAll(".has-submenu > a");
+  submenuParents.forEach(parent => {
+    parent.addEventListener("click", e => {
+      if (window.innerWidth <= 768) { // seulement sur mobile
+        e.preventDefault();
+        const submenu = parent.nextElementSibling;
+        submenu.classList.toggle("active");
+      }
+    });
+  });
 
-  // --- Scripts Services ---
+  // Scroll vers section depuis sous-menu
+  document.querySelectorAll('.submenu a').forEach(link => {
+    link.addEventListener('click', e => {
+      const targetId = link.getAttribute('href').replace('#', '');
+      const targetBtn = document.getElementById(targetId);
+
+      if (targetBtn) {
+        e.preventDefault();
+        targetBtn.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        targetBtn.click(); // active le contenu dynamique
+
+        // Fermer menu mobile
+        if (navLinks.classList.contains('active')) navLinks.classList.remove('active');
+      }
+    });
+  });
+
+  // ------------------------------
+  // ACTIVATION SERVICES
+  // ------------------------------
   const serviceButtons = document.querySelectorAll(".service-item");
   const serviceDetail = document.getElementById("serviceDetail");
 
   const servicesContent = {
     seo: {
       title: "Optimisation SEO",
-      text: "J’analyse les performances…"
+      text: "J’analyse les performances de votre site, optimise la structure, le contenu et les balises pour améliorer votre visibilité sur les moteurs de recherche. L’objectif : attirer un trafic qualifié et durable."
     },
     content: {
       title: "Gestion de contenu web",
-      text: "Je crée, organise…"
+      text: "Je crée, organise et optimise votre contenu web pour qu’il soit pertinent, cohérent et engageant."
     },
     uxui: {
       title: "UX / UI Design",
-      text: "Je conçois des interfaces…"
+      text: "Je conçois des interfaces intuitives et esthétiques pour offrir une expérience utilisateur fluide et agréable."
     },
     creation: {
-      title: "Création de sites",
-      text: "Je développe des sites…"
+      title: "Création de sites et d’interfaces",
+      text: "Je développe des sites web et interfaces sur mesure, adaptés à votre activité, responsive et optimisés pour tous les supports."
     },
     analyse: {
-      title: "Analyse des parcours",
-      text: "J’observe et analyse…"
+      title: "Analyse des parcours utilisateurs",
+      text: "J’observe et analyse le comportement des visiteurs sur votre site afin d’identifier les points de friction et proposer des optimisations stratégiques."
     }
   };
 
@@ -72,19 +85,17 @@ document.addEventListener("DOMContentLoaded", () => {
       serviceDetail.innerHTML = `<h3>${content.title}</h3><p>${content.text}</p>`;
     });
   });
-}
 
-// Scroll vers la section et active le service correspondant au clic dans le menu
-document.querySelectorAll('.submenu a').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const targetId = link.getAttribute('href').replace('#', '');
-    const targetBtn = document.getElementById(targetId);
+  // ------------------------------
+  // Clic sur le logo ou h1 accueil
+  // ------------------------------
+  const accueilBtn = document.querySelector("header h1, .nav-logo a");
+  if (accueilBtn) {
+    accueilBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
-    if(targetBtn) {
-      targetBtn.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      targetBtn.click(); // active le contenu dynamique
-    }
-  });
+  console.log("Scripts du site initialisés ✅");
+
 });
-
