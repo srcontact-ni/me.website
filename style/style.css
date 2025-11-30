@@ -386,22 +386,39 @@ section {
     margin-top: 40px;
   }
 
-  .project-tools h3 {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 25px;
+  .tools-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
+    margin-bottom: 20px;
   }
 
-  .project-tools li {
-    background: #f5f5f5;
-    padding: 8px 15px;
+  .tool-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f9f9f9;
+    padding: 6px 10px;
     border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     font-size: 14px;
-    border: 1px solid #ddd;
   }
+
+  .tool-item img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  /* Responsive : carte infos sous outils sur mobile */
+  @media(max-width:768px) {
+    .project-grid {
+      display: block; /* empile les sections*/
+    }
+    .project-card-static{
+      margin-top: 20px; /* passe sous outils*/
+    }
+    }
   
   /* --- Galerie de projet --- */
 

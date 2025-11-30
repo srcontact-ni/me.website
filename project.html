@@ -59,11 +59,15 @@
         </section>
 
       <section class="project-tools">
-      <h3>Outils utilisé</h3>
-      <ul id="projectOutils"></ul>
+      <h3>Outils utilisés</h3>
+      <div id="projectOutils"
+       class ="tools-list">
+      </div>
 
       <h3>Langages de programmation</h3>
-      <ul id="projectLangages"></ul>
+      <div id="projectLangages"
+        class="tools-list">
+      </div>
       </section>
 
         <aside class="project-card-static">
@@ -140,15 +144,27 @@
 
         // Outils utilisés
         const outilsContainer = document.getElementById("projectOutils");
-        outilsContainer.innerHTML = '';
         if(project.Outils){
-          project.Outils.forEach(tool => {
-            const li =
-          document.createElement('li');
-            li.textContent = tool;
-            outilsContainer.appendChild(li);
-          });
+          outilsContainer.innerHTML = 
+          project.Outils.map(tool =>
+            <div class="tool-item">
+              <img src="${tool.logo}" alt="${tool.nom}">
+              <span>${tool.nom}</span>
+            </div>
+            ).join('');
         }
+
+        const langagesContainer = document.getElementById("projectLangages");
+        if(project.Outils){
+          langagesContainer.innerHTML = 
+          project.Langages.map(lang =>
+            <div class="tool-item">
+              <img src="${lang.logo}" alt="${lang.nom}">
+              <span>${lang.nom}</span>
+            </div>
+            ).join('');
+        }
+
         
         //Langages de programmation
         const langContainer = document.getElementById("projectLangages");
