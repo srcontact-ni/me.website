@@ -56,7 +56,30 @@
       "Localisation": "Lyon",
       "Duree": "Jan 2023 - Avr 2023",
       "Image": "assets/images/etikashion.jpg",
-      "LienExterne": ""
+      "LienExterne": "",
+      "gallery": [
+        {
+          "category": "Projet Coffrets Cadeaux",
+          "images": [
+            "assets/logis/logis-hotels-mobile.png",
+            "assets/logis/mockup-coffret-2.png"
+          ]
+        },
+        {
+          "category": "A/B Tests",
+          "images": [
+            "assets/logis/abtest-landing.png",
+            "assets/logis/abtest-header.png"
+          ]
+        },
+        {
+          "category": "Maquettes UX/UI",
+          "images": [
+            "assets/logis/figma-maquette-1.png",
+            "assets/logis/figma-maquette-2.png"
+          ]
+        }
+      ]
     },
     {
       "ID": "maisonaudio",
@@ -73,7 +96,30 @@
       "Localisation": "Paris",
       "Duree": "Mai 2022 - Juil 2022",
       "Image": "assets/images/maisonaudio.jpg",
-      "LienExterne": ""
+      "LienExterne": "",
+      "gallery": [
+        {
+          "category": "Projet Coffrets Cadeaux",
+          "images": [
+            "assets/logis/logis-hotels-mobile.png",
+            "assets/logis/mockup-coffret-2.png"
+          ]
+        },
+        {
+          "category": "A/B Tests",
+          "images": [
+            "assets/logis/abtest-landing.png",
+            "assets/logis/abtest-header.png"
+          ]
+        },
+        {
+          "category": "Maquettes UX/UI",
+          "images": [
+            "assets/logis/figma-maquette-1.png",
+            "assets/logis/figma-maquette-2.png"
+          ]
+        }
+      ]
     }
   ]
   
