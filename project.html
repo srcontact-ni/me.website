@@ -148,10 +148,10 @@
           outilsContainer.innerHTML = 
           project.Outils.map(tool =>
             <div class="tool-item">
-              <img src="${tool.logo}" alt="${tool.nom}">
+              <img src="${tool.logo}" alt="${tool.nom}"></img>
               <span>${tool.nom}</span>
             </div>
-            ).join('');
+          ).join('');
         }
 
         const langagesContainer = document.getElementById("projectLangages");
@@ -159,7 +159,7 @@
           langagesContainer.innerHTML = 
           project.Langages.map(lang =>
             <div class="tool-item">
-              <img src="${lang.logo}" alt="${lang.nom}">
+              <img src="${lang.logo}" alt="${lang.nom}"></img>
               <span>${lang.nom}</span>
             </div>
             ).join('');
