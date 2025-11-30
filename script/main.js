@@ -117,4 +117,20 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }).join("");
   }   
+
+  function sendContact(event) {
+    event.preventDefault(); // Empêche le rechargement de la page
+
+    const nom = document.getElementById("nom").value;
+    const societe = document.getElementById("societe").value;
+    const tel = document.getElementById("tel").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // Affichage temporaire pour vérifier que ça fonctionne
+    document.getElementById("formResponse").innerText =
+        "Votre message a été envoyé avec succès !";
+
+    // Tu peux ensuite ajouter l'envoi vers un service (API, email…)
+}
 });
