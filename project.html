@@ -50,6 +50,9 @@
         <section class="project-main">
           <h2>À propos</h2>
           <p id="projectAbout"></p>
+      <div id="projectAbout"></div>
+      <div id="projectSitesGroupe" class="sites-groupe"></div>
+
 
           <h2>Mes missions</h2>
           <div id="projectMissions" class="missions-list"></div>
@@ -101,6 +104,14 @@
         document.getElementById('shortDesc').textContent = project.ShortDesc;
         document.getElementById('phraseAccroche').textContent = project.PhraseAccroche;
         document.getElementById('projectAbout').textContent = project.AProposEntreprise || '';
+        if (project.SitesGroupe) {
+              const sitesContainer = document.getElementById('projectSitesGroupe');
+              sitesContainer.innerHTML = project.SitesGroupe.map(site => `
+                <a href="${site.lien}" target="_blank" title="${site.nom}">
+                  <img src="${site.logo}" alt="${site.nom}">
+                </a>
+              `).join('');
+            }
         document.getElementById('projectSecteur').textContent = project.Secteur || '';
         document.getElementById('projectLocalisation').textContent = project.Localisation || '';
         document.getElementById('projectDuree').textContent = project.Duree || '';

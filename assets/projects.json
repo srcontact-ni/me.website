@@ -5,13 +5,18 @@
       "ShortDesc": "Intégration et optimisation des pages coffrets cadeaux, refonte des contenus.",
       "PhraseAccroche": "Augmenter les conversions via une expérience coffret pensée UX",
       "AProposEntreprise": "Logis Hôtels est un réseau d'hôtels indépendants souhaitant moderniser sa vente de coffrets cadeaux et améliorer l'expérience client en ligne.",
+      "SitesGroupe": [
+        {"nom": "Coffrets Cadeaux", "lien": "https://www.logishotels.com/fr", "logo": "assets/img/logishotels/logos/LOGIS_HOTELS_DEPUIS_1948_LOGOTYPE_EXECUTE_POSITIF_RVB_1_1.png" },
+        {"nom": "Demeures & Châteaux", "lien": "https://www.demeureschateauxhotels.com/", "logo": "assets/img/logishotels/logos/singuliers-logo.min.svg" },
+        { "nom": "Singulier Hôtels", "lien": "https://www.singuliershotels.com/", "logo": "assets/logis/logo-sh.png" },
+        { "nom": "Coffrets Cadeaux", "lien": "https://logishotels.bonkdo.com/fr/networkvouchers/", "logo": "assets/logis/logo-coffrets.png" }
+      ],      
       "Missions": [
         "Intégrer les contenus sous Joomla",
         "Créer les pages d'atterrissage",
         "Optimiser l'e-merchandising",
         "Tester et recetter les parcours utilisateur"
       ],
-      
       "Secteur": "Hôtellerie",
       "Localisation": "Paris",
       "Duree": "Oct 2023 - Déc 2024",

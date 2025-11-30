@@ -343,7 +343,26 @@ section {
     font-weight:600; 
     color:#333; 
     margin-top:10px; 
-  } 
+  }
+  
+  .sites-groupe {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .sites-groupe a img {
+    width: 80px;   /* taille fixe, modifiable */
+    height: 80px;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+  }
+  
+  .sites-groupe a img:hover {
+    transform: scale(1.1);
+  }  
   
   .project-card-static { 
     background:#fff; 
