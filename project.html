@@ -65,6 +65,11 @@
         </aside>
       </div>
 
+      <section class="project-gallery">
+        <h3>Galerie du projet</h3>
+        <div id="galleryContainer"></div>
+      </section>      
+
       <section>
         <h2>Autres réalisations</h2>
         <div id="relatedProjects" class="cards-container"></div>
@@ -113,6 +118,12 @@
           div.textContent = m;
           missionsContainer.appendChild(div);
         });
+
+          // --- AJOUT DE LA GALERIE ---
+          if (project.gallery) {
+            window.renderGallery(project);
+          }
+
 
         // Related projects
         const related = document.getElementById('relatedProjects');

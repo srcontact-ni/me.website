@@ -98,4 +98,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("Scripts du site initialisés ✅");
 
+  window.renderGallery = function(project) {
+    const container = document.getElementById("galleryContainer");
+    if (!container || !project.gallery) return;
+  
+    container.innerHTML = project.gallery.map(section => {
+      const imgs = section.images.map(img =>
+        `<div class="gallery-card">
+           <img src="${img}" alt="${project.NomProjet}">
+         </div>`
+      ).join("");
+  
+      return `
+        <div class="gallery-block">
+          <h4>${section.category}</h4>
+          <div class="gallery-grid">${imgs}</div>
+        </div>
+      `;
+    }).join("");
+  }   
 });

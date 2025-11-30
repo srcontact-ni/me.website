@@ -11,11 +11,35 @@
         "Optimiser l'e-merchandising",
         "Tester et recetter les parcours utilisateur"
       ],
+      
       "Secteur": "Hôtellerie",
       "Localisation": "Paris",
       "Duree": "Oct 2023 - Déc 2024",
       "Image": "assets/images/logis.jpg",
-      "LienExterne": "https://logishotels.example"
+      "LienExterne": "https://logishotels.example",
+      "gallery": [
+        {
+          "category": "Projet Coffrets Cadeaux",
+          "images": [
+            "assets/logis/mockup-coffret-1.png",
+            "assets/logis/mockup-coffret-2.png"
+          ]
+        },
+        {
+          "category": "A/B Tests",
+          "images": [
+            "assets/logis/abtest-landing.png",
+            "assets/logis/abtest-header.png"
+          ]
+        },
+        {
+          "category": "Maquettes UX/UI",
+          "images": [
+            "assets/logis/figma-maquette-1.png",
+            "assets/logis/figma-maquette-2.png"
+          ]
+        }
+      ]
     },
     {
       "ID": "etikashion",
