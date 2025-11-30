@@ -388,7 +388,7 @@ section {
 
   .tools-list {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 15px;
     margin-bottom: 20px;
   }
