@@ -7,9 +7,9 @@
       "AProposEntreprise": "Logis Hôtels est un réseau d'hôtels indépendants souhaitant moderniser sa vente de coffrets cadeaux et améliorer l'expérience client en ligne.",
       "SitesGroupe": [
         {"nom": "Coffrets Cadeaux", "lien": "https://www.logishotels.com/fr", "logo": "assets/img/logishotels/logos/LOGIS_HOTELS_DEPUIS_1948_LOGOTYPE_EXECUTE_POSITIF_RVB_1_1.png" },
-        {"nom": "Demeures & Châteaux", "lien": "https://www.demeureschateauxhotels.com/", "logo": "assets/img/logishotels/logos/singuliers-logo.min.svg" },
-        { "nom": "Singulier Hôtels", "lien": "https://www.singuliershotels.com/", "logo": "assets/logis/logo-sh.png" },
-        { "nom": "Coffrets Cadeaux", "lien": "https://logishotels.bonkdo.com/fr/networkvouchers/", "logo": "assets/logis/logo-coffrets.png" }
+        {"nom": "Demeures & Châteaux", "lien": "https://www.demeureschateauxhotels.com/", "logo": "" },
+        { "nom": "Singulier Hôtels", "lien": "https://www.singuliershotels.com/", "logo": "assets/img/logishotels/logos/singuliers-logo.min.svg" },
+        { "nom": "Coffrets Cadeaux", "lien": "https://logishotels.bonkdo.com/fr/networkvouchers/", "logo": "assets/img/logishotels/logos/LOGIS_HOTELS_DEPUIS_1948_LOGOTYPE_EXECUTE_POSITIF_RVB_1_1.png" }
       ],      
       "Missions": [
         "Intégrer les contenus sous Joomla",
