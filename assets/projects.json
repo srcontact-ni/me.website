@@ -17,10 +17,25 @@
         "Optimiser l'e-merchandising",
         "Tester et recetter les parcours utilisateur"
       ],
+
+      "Outils":[
+        "Joomla",
+        "A/B Tasty",
+        "Figma",
+        "Redmine",
+        "Hotjar"
+      ],
+
+      "Langages": [
+        "HTML",
+        "CSS",
+        "Javascript"
+      ],
+
       "Secteur": "Hôtellerie",
       "Localisation": "Paris",
       "Duree": "Oct 2023 - Déc 2024",
-      "Image": "assets/images/logis.jpg",
+      "Image": "assets/img/logishotels/logos/LOGIS_HOTELS_DEPUIS_1948_LOGOTYPE_EXECUTE_POSITIF_RVB_1_1.png",
       "LienExterne": "https://logishotels.example",
       "gallery": [
         {

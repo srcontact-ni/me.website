@@ -44,19 +44,27 @@
         <h1 id="projectName">Nom du projet</h1>
         <p id="shortDesc" class="short-desc"></p>
         <p id="phraseAccroche" class="phrase-accroche"></p>
-      </div>
+    </div>
 
-      <div class="project-grid">
-        <section class="project-main">
-          <h2>À propos</h2>
-          <p id="projectAbout"></p>
-      <div id="projectAbout"></div>
-      <div id="projectSitesGroupe" class="sites-groupe"></div>
+    <div class="project-grid">
+      <section class="project-main">
+        <h2>À propos</h2>
+        <p id="projectAbout"></p>
+    <div id="projectAbout"></div>
+    <div id="projectSitesGroupe" class="sites-groupe"></div>
 
-
-          <h2>Mes missions</h2>
-          <div id="projectMissions" class="missions-list"></div>
+        <h2>Mes missions</h2>
+    <div id="projectMissions" 
+      class="missions-list"></div>
         </section>
+
+      <section class="project-tools">
+      <h3>Outils utilisé</h3>
+      <ul id="projectToolsList"></ul>
+
+      <h3>Langages de programmation</h3>
+      <ul id="projectLangList"></ul>
+      </section>
 
         <aside class="project-card-static">
           <h3>Informations</h3>
@@ -129,6 +137,14 @@
           div.textContent = m;
           missionsContainer.appendChild(div);
         });
+
+        // Outils utilisés
+        const toolsList = document.getElementById("projectToolsList");
+        toolsList.innerHTML = project.Outils ? project.Outils.map(tool => '<li>${tool}</li>').join("") : "<li>Aucun langage renseigné</li>";
+        
+        //Langages de programmation
+        const langlist = document.getElementById("projectLangList");langList.innerHTML = project.Langages ? project.Langages.map(lang => '<li>${lang}</li>').join("") : "<li>Aucun langage renseigné</li>";
+
 
           // --- AJOUT DE LA GALERIE ---
           if (project.gallery) {
