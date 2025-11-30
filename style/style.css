@@ -347,6 +347,7 @@ section {
   
   .sites-groupe {
     margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
@@ -380,7 +381,6 @@ section {
     padding:10px 0; 
     border-bottom:1px solid #eee; 
     font-weight:600; 
-    gap: 20px;
   } 
 
   .tools-list {
