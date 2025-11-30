@@ -60,10 +60,10 @@
 
       <section class="project-tools">
       <h3>Outils utilisé</h3>
-      <ul id="projectToolsList"></ul>
+      <ul id="projectOutils"></ul>
 
       <h3>Langages de programmation</h3>
-      <ul id="projectLangList"></ul>
+      <ul id="projectLangages"></ul>
       </section>
 
         <aside class="project-card-static">
@@ -139,18 +139,33 @@
         });
 
         // Outils utilisés
-        const toolsList = document.getElementById("projectToolsList");
-        toolsList.innerHTML = project.Outils ? project.Outils.map(tool => '<li>${tool}</li>').join("") : "<li>Aucun langage renseigné</li>";
+        const outilsContainer = document.getElementById("projectOutils");
+        outilsContainer.innerHTML = '';
+        if(project.Outils){
+          project.Outils.forEach(tool => {
+            const li =
+          document.createElement('li');
+            li.textContent = tool;
+            outilsContainer.appendChild(li);
+          });
+        }
         
         //Langages de programmation
-        const langlist = document.getElementById("projectLangList");langList.innerHTML = project.Langages ? project.Langages.map(lang => '<li>${lang}</li>').join("") : "<li>Aucun langage renseigné</li>";
-
+        const langContainer = document.getElementById("projectLangages");
+        langContainer.innerHTML = '';
+        if (project.Langages) {
+          project.Langages.forEach(lang => {
+            const li =
+          document.createElement('li');
+            li.textContent = lang;
+            langContainer.appendChild(li);
+          });
+        }
 
           // --- AJOUT DE LA GALERIE ---
           if (project.gallery) {
             window.renderGallery(project);
           }
-
 
         // Related projects
         const related = document.getElementById('relatedProjects');
