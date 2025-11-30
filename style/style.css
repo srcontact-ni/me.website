@@ -388,14 +388,18 @@ section {
 
   .tools-list {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 15px;
+    justify-content: flex-start;
     margin-bottom: 20px;
   }
 
   .tool-item {
+    width: 110px;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: 8px;
     background: #f9f9f9;
     padding: 6px 10px;
@@ -408,6 +412,12 @@ section {
     width: 24px;
     height: 24px;
     object-fit: contain;
+    margin-bottom: 8px;
+  }
+
+  .tool-item img {
+    width: 40px;
+    height: 500;
   }
 
   /* Responsive : carte infos sous outils sur mobile */
