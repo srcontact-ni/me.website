@@ -415,9 +415,9 @@ section {
     margin-bottom: 8px;
   }
 
-  .tool-item img {
-    width: 40px;
-    height: 500;
+  .tool-item span {
+    font-size: 14px;
+    font-weight: 500;
   }
 
   /* Responsive : carte infos sous outils sur mobile */
