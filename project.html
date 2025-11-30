@@ -146,36 +146,23 @@
         const outilsContainer = document.getElementById("projectOutils");
         if(project.Outils){
           outilsContainer.innerHTML = 
-          project.Outils.map(tool =>
+          project.Outils.map(tool => `
             <div class="tool-item">
-              <img src="${tool.logo}" alt="${tool.nom}"></img>
+              <img src="${tool.logo}" alt="${tool.nom}">
               <span>${tool.nom}</span>
             </div>
-          ).join('');
+            `).join('');
         }
 
         const langagesContainer = document.getElementById("projectLangages");
         if(project.Outils){
           langagesContainer.innerHTML = 
-          project.Langages.map(lang =>
+          project.Langages.map(lang => `
             <div class="tool-item">
-              <img src="${lang.logo}" alt="${lang.nom}"></img>
+              <img src="${lang.logo}" alt="${lang.nom}">
               <span>${lang.nom}</span>
             </div>
-            ).join('');
-        }
-
-        
-        //Langages de programmation
-        const langContainer = document.getElementById("projectLangages");
-        langContainer.innerHTML = '';
-        if (project.Langages) {
-          project.Langages.forEach(lang => {
-            const li =
-          document.createElement('li');
-            li.textContent = lang;
-            langContainer.appendChild(li);
-          });
+            `).join('');
         }
 
           // --- AJOUT DE LA GALERIE ---
