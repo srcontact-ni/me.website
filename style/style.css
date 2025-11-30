@@ -375,13 +375,16 @@ section {
   .project-card-static h3 { 
     margin-top:0; 
   } 
+
+  .missions-list {
+    margin-bottom: 20px;
+  }
   
   .missions-list .mission-item { 
     font-size:1.05rem; 
     padding:10px 0; 
     border-bottom:1px solid #eee; 
     font-weight:600;
-    margin-bottom: 20px;
   } 
 
   .tools-list {
