@@ -380,11 +380,8 @@ section {
     padding:10px 0; 
     border-bottom:1px solid #eee; 
     font-weight:600; 
+    gap: 20px;
   } 
-
-  .project-tools {
-    margin-top: 40px;
-  }
 
   .tools-list {
     display: flex;
