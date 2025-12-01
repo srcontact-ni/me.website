@@ -1,7 +1,32 @@
+import { saveMessage } from "./firebase.js";
+
 console.log("JavaScript chargé ✅");
 
-document.addEventListener("DOMContentLoaded", () => {
+  // ACTIVATION FORMULAIRE DE CONTACT AVEC FIREBASE //
 
+window.sendContact = async function (e) {
+  e.preventDefault();
+
+  const nom = document.getElementById("nom").value.trim();
+  const societe = document.getElementById("societe").value.trim();
+  const tel = document.getElementById("tel").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const responseBox = document.getElementById("formResponse");
+
+  const data = { nom, societe, tel, email, message, date: new Date() };
+
+  const result = await saveMessage(data);
+
+  if (result.success) {
+      responseBox.innerHTML = "<span style='color:green;'>Message envoyé ✔️</span>";
+      e.target.reset();
+  } else {
+      responseBox.innerHTML = "<span style='color:red;'>Erreur, réessayez ❌</span>";
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------
   // MENU MOBILE (Hamburger)
   // ------------------------------
@@ -117,20 +142,4 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }).join("");
   }   
-
-  function sendContact(event) {
-    event.preventDefault(); // Empêche le rechargement de la page
-
-    const nom = document.getElementById("nom").value;
-    const societe = document.getElementById("societe").value;
-    const tel = document.getElementById("tel").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-
-    // Affichage temporaire pour vérifier que ça fonctionne
-    document.getElementById("formResponse").innerText =
-        "Votre message a été envoyé avec succès !";
-
-    // Tu peux ensuite ajouter l'envoi vers un service (API, email…)
-}
 });
