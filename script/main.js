@@ -1,30 +1,4 @@
-import { saveMessage } from "./firebase.js";
-
-console.log("JavaScript chargé ✅");
-
-  // ACTIVATION FORMULAIRE DE CONTACT AVEC FIREBASE //
-
-window.sendContact = async function (e) {
-  e.preventDefault();
-
-  const nom = document.getElementById("nom").value.trim();
-  const societe = document.getElementById("societe").value.trim();
-  const tel = document.getElementById("tel").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
-  const responseBox = document.getElementById("formResponse");
-
-  const data = { nom, societe, tel, email, message, date: new Date() };
-
-  const result = await saveMessage(data);
-
-  if (result.success) {
-      responseBox.innerHTML = "<span style='color:green;'>Message envoyé ✔️</span>";
-      e.target.reset();
-  } else {
-      responseBox.innerHTML = "<span style='color:red;'>Erreur, réessayez ❌</span>";
-  }
-};
+Console.log("JavaScript chargé ✅");
 
 document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------
@@ -141,5 +115,45 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
     }).join("");
-  }   
+  };
+
+  // ------------------------------
+// FORMULAIRE DE CONTACT
+// ------------------------------
+const contactForm = document.getElementById("contactForm");
+const formResponse = document.getElementById("formResponse");
+
+window.sendContact = function(e) {
+  e.preventDefault();
+
+  const formData = {
+    nom: document.getElementById("nom").value,
+    societe: document.getElementById("societe").value,
+    tel: document.getElementById("tel").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+  };
+
+  // L'URL ici, c'est l'URL de ton Web App Apps Script
+  const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycby1H19NzawMU2d5KOFnhemJJMqBZMkWuTslNEDxMl8M4xv3OAxJhzVAwNnZnLEAwiI/exec";
+
+  fetch(ENDPOINT_URL, {
+    method: "POST",
+    mode: "no-cors", // Important si ton script n'a pas le CORS activé
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+  })
+  .then(() => {
+    formResponse.textContent = "Message envoyé ✅";
+    contactForm.reset();
+  })
+  .catch(err => {
+    console.error(err);
+    formResponse.textContent = "Erreur lors de l'envoi ❌";
+  });
+}
+
 });
+
