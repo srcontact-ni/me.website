@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
       message: document.getElementById("message").value,
     };
 
-    const ENDPOINT_URL = "https://script.google.com/macros/s/TON_ENDPOINT_ICI/exec";
+    const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycby1H19NzawMU2d5KOFnhemJJMqBZMkWuTslNEDxMl8M4xv3OAxJhzVAwNnZnLEAwiI/exec";
 
     fetch(ENDPOINT_URL, {
       method: "POST",
