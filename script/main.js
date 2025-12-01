@@ -190,9 +190,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }).join("");
   };
 
-  // ==============================
+  // ------------------------------
   // FORMULAIRE DE CONTACT
-  // ==============================
+  // ------------------------------
   const contactForm = document.getElementById("contactForm");
   const formResponse = document.getElementById("formResponse");
 
@@ -207,16 +207,18 @@ document.addEventListener("DOMContentLoaded", () => {
       message: document.getElementById("message").value,
     };
 
-    const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycby1H19NzawMU2d5KOFnhemJJMqBZMkWuTslNEDxMl8M4xv3OAxJhzVAwNnZnLEAwiI/exec";
+    const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbxIuVARtbk5s23gOwQ7OALW1y5lT3YZvL-Q5BrOdxeynE4ka7zeA3hg98OurK5dCZo/exec";
 
     fetch(ENDPOINT_URL, {
       method: "POST",
       mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(formData)
     })
     .then(() => {
-      formResponse.textContent = "Message envoyé ✅";
+      formResponse.textContent = "Message envoyé ✅ Un email de confirmation vous a été envoyé.";
       contactForm.reset();
     })
     .catch(err => {
