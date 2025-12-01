@@ -1,9 +1,10 @@
-Console.log("JavaScript chargé ✅");
+console.log("JavaScript chargé ✅");
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ------------------------------
+
+  // ==============================
   // MENU MOBILE (Hamburger)
-  // ------------------------------
+  // ==============================
   const navToggle = document.getElementById("navToggle");
   const navLinks = document.getElementById("navLinks");
 
@@ -13,9 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ------------------------------
+  // ==============================
   // SOUS-MENUS
-  // ------------------------------
+  // ==============================
   const submenuParents = document.querySelectorAll(".has-submenu > a");
   submenuParents.forEach(parent => {
     parent.addEventListener("click", e => {
@@ -38,15 +39,14 @@ document.addEventListener("DOMContentLoaded", () => {
         targetBtn.scrollIntoView({ behavior: 'smooth', block: 'start' });
         targetBtn.click(); // active le contenu dynamique
 
-        // Fermer menu mobile
         if (navLinks.classList.contains('active')) navLinks.classList.remove('active');
       }
     });
   });
 
-  // ------------------------------
-  // ACTIVATION SERVICES
-  // ------------------------------
+  // ==============================
+  // SERVICES
+  // ==============================
   const serviceButtons = document.querySelectorAll(".service-item");
   const serviceDetail = document.getElementById("serviceDetail");
 
@@ -81,13 +81,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const key = button.getAttribute("data-service");
       const content = servicesContent[key];
 
-      serviceDetail.innerHTML = `<h3>${content.title}</h3><p>${content.text}</p>`;
+      if(serviceDetail && content) {
+        serviceDetail.innerHTML = `<h3>${content.title}</h3><p>${content.text}</p>`;
+      }
     });
   });
 
-  // ------------------------------
-  // Clic sur le logo ou h1 accueil
-  // ------------------------------
+  // ==============================
+  // CLIC SUR LOGO OU H1 ACCUEIL
+  // ==============================
   const accueilBtn = document.querySelector("header h1, .nav-logo a");
   if (accueilBtn) {
     accueilBtn.addEventListener("click", () => {
@@ -95,90 +97,90 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  console.log("Scripts du site initialisés ✅");
-// ------------------------------
-// CHARGEMENT DES PROJETS JSON
-// ------------------------------
-let projectsData = [];
+  console.log("Scripts initiaux ✅");
 
-fetch('projects.json') // ou le chemin correct vers ton JSON
-  .then(res => res.json())
-  .then(data => {
-    projectsData = data;
-    console.log("Projets chargés ✅", projectsData);
+  // ==============================
+  // CHARGEMENT DES PROJETS JSON
+  // ==============================
+  let projectsData = [];
 
-    // Récupérer l'ID du projet depuis l'URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const projectId = urlParams.get('id');
+  fetch('projects.json')
+    .then(res => res.json())
+    .then(data => {
+      projectsData = data;
+      console.log("Projets chargés ✅", projectsData);
 
-    if(projectId) {
-      const project = projectsData.find(p => p.ID === projectId);
-      if(project) {
-        renderGallery(project);
-        renderProjectDetails(project);
-      } else {
-        console.warn("Projet introuvable pour l'ID :", projectId);
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectId = urlParams.get('id');
+
+      if(projectId) {
+        const project = projectsData.find(p => p.ID === projectId);
+        if(project) {
+          renderProjectDetails(project);
+          renderGallery(project);
+        } else {
+          console.warn("Projet introuvable pour l'ID :", projectId);
+        }
       }
+    })
+    .catch(err => console.error("Erreur chargement JSON :", err));
+
+  // ==============================
+  // AFFICHER LES DÉTAILS DU PROJET
+  // ==============================
+  function renderProjectDetails(project) {
+    const titleEl = document.getElementById("projectTitle");
+    const descEl = document.getElementById("projectDesc");
+    const aProposEl = document.getElementById("projectAPropos");
+
+    if(titleEl) titleEl.textContent = project.NomProjet;
+    if(descEl) descEl.textContent = project.ShortDesc;
+    if(aProposEl) aProposEl.textContent = project.AProposEntreprise;
+
+    // Logos sites du groupe
+    const sitesContainer = document.getElementById("projectSites");
+    if(sitesContainer && project.SitesGroupe) {
+      sitesContainer.innerHTML = project.SitesGroupe.map(site =>
+        `<a href="${site.lien}" target="_blank" title="${site.nom}">
+           <img src="${site.logo}" alt="${site.nom}">
+         </a>`).join("");
     }
-  })
-  .catch(err => console.error("Erreur chargement JSON :", err));
 
-// ------------------------------
-// AFFICHER LES DÉTAILS DU PROJET
-// ------------------------------
-function renderProjectDetails(project) {
-  const titleEl = document.getElementById("projectTitle");
-  const descEl = document.getElementById("projectDesc");
-  const aProposEl = document.getElementById("projectAPropos");
+    // Missions
+    const missionsContainer = document.getElementById("projectMissions");
+    if(missionsContainer && project.Missions) {
+      missionsContainer.innerHTML = project.Missions.map(m => `<li>${m}</li>`).join("");
+    }
 
-  if(titleEl) titleEl.textContent = project.NomProjet;
-  if(descEl) descEl.textContent = project.ShortDesc;
-  if(aProposEl) aProposEl.textContent = project.AProposEntreprise;
+    // Outils
+    const outilsContainer = document.getElementById("projectOutils");
+    if(outilsContainer && project.Outils) {
+      outilsContainer.innerHTML = project.Outils.map(o =>
+        `<img src="${o.logo}" alt="${o.nom}" title="${o.nom}">`).join("");
+    }
 
-  // Exemple : afficher logos sites du groupe
-  const sitesContainer = document.getElementById("projectSites");
-  if(sitesContainer && project.SitesGroupe) {
-    sitesContainer.innerHTML = project.SitesGroupe.map(site =>
-      `<a href="${site.lien}" target="_blank" title="${site.nom}">
-         <img src="${site.logo}" alt="${site.nom}">
-       </a>`).join("");
+    // Langages
+    const langagesContainer = document.getElementById("projectLangages");
+    if(langagesContainer && project.Langages) {
+      langagesContainer.innerHTML = project.Langages.map(l =>
+        `<img src="${l.logo}" alt="${l.nom}" title="${l.nom}">`).join("");
+    }
   }
 
-  // Missions
-  const missionsContainer = document.getElementById("projectMissions");
-  if(missionsContainer && project.Missions) {
-    missionsContainer.innerHTML = project.Missions.map(m => `<li>${m}</li>`).join("");
-  }
-
-  // Outils
-  const outilsContainer = document.getElementById("projectOutils");
-  if(outilsContainer && project.Outils) {
-    outilsContainer.innerHTML = project.Outils.map(o =>
-      `<img src="${o.logo}" alt="${o.nom}" title="${o.nom}">`).join("");
-  }
-
-  // Langages
-  const langagesContainer = document.getElementById("projectLangages");
-  if(langagesContainer && project.Langages) {
-    langagesContainer.innerHTML = project.Langages.map(l =>
-      `<img src="${l.logo}" alt="${l.nom}" title="${l.nom}">`).join("");
-  }
-}
-
-// ------------------------------
-// FONCTION EXISTANTE GALERIE
-// ------------------------------
+  // ==============================
+  // FONCTION GALERIE
+  // ==============================
   window.renderGallery = function(project) {
     const container = document.getElementById("galleryContainer");
     if (!container || !project.gallery) return;
-  
+
     container.innerHTML = project.gallery.map(section => {
       const imgs = section.images.map(img =>
         `<div class="gallery-card">
            <img src="${img}" alt="${project.NomProjet}">
          </div>`
       ).join("");
-  
+
       return `
         <div class="gallery-block">
           <h4>${section.category}</h4>
@@ -188,9 +190,9 @@ function renderProjectDetails(project) {
     }).join("");
   };
 
-  // ------------------------------
-// FORMULAIRE DE CONTACT
-// ------------------------------
+  // ==============================
+  // FORMULAIRE DE CONTACT
+  // ==============================
   const contactForm = document.getElementById("contactForm");
   const formResponse = document.getElementById("formResponse");
 
@@ -205,15 +207,12 @@ function renderProjectDetails(project) {
       message: document.getElementById("message").value,
     };
 
-    // L'URL ici, c'est l'URL de ton Web App Apps Script
-    const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycby1H19NzawMU2d5KOFnhemJJMqBZMkWuTslNEDxMl8M4xv3OAxJhzVAwNnZnLEAwiI/exec";
+    const ENDPOINT_URL = "https://script.google.com/macros/s/TON_ENDPOINT_ICI/exec";
 
     fetch(ENDPOINT_URL, {
       method: "POST",
-      mode: "no-cors", // Important si ton script n'a pas le CORS activé
-      headers: {
-        "Content-Type": "application/json"
-      },
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData)
     })
     .then(() => {
@@ -224,6 +223,6 @@ function renderProjectDetails(project) {
       console.error(err);
       formResponse.textContent = "Erreur lors de l'envoi ❌";
     });
-      };
-});
+  };
 
+});
