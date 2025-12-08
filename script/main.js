@@ -52,24 +52,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const servicesContent = {
     seo: {
-      title: "Optimisation SEO",
-      text: "J’analyse les performances de votre site, optimise la structure, le contenu et les balises pour améliorer votre visibilité sur les moteurs de recherche. L’objectif : attirer un trafic qualifié et durable."
+      title: "Visibilité fiche Google optimisée",
+      text: "Création et optimisation fiches établissement Partoo pour top 3 local, récolte avis clients, animation de votre fiche d'établissement régulière."
     },
     content: {
-      title: "Gestion de contenu web",
-      text: "Je crée, organise et optimise votre contenu web pour qu’il soit pertinent, cohérent et engageant."
+      title: "Sites low-code sur-mesure",
+      text: "Landing pages WordPress 100% sur-mesure livrées en 7 jours, home saisonnières adaptées aux promotions, maquettes Figma marque blanche pour extensions business."
     },
     uxui: {
-      title: "UX / UI Design",
-      text: "Je conçois des interfaces intuitives et esthétiques pour offrir une expérience utilisateur fluide et agréable."
+      title: "Contenus web optimisés SEO",
+      text: "Textes accrocheurs pour landing pages, optimisation on-page SEO (titres, meta, structure), contenus indexables rapidement, pages structurées pour Google."
     },
     creation: {
-      title: "Création de sites et d’interfaces",
-      text: "Je développe des sites web et interfaces sur mesure, adaptés à votre activité, responsive et optimisés pour tous les supports."
+      title: "Testeuse UX/logiciels",
+      text: "Analyse frictions invisibles avec Hotjar, test parcours stratégiques (panier, réservation), NPS pages clés, specs Redmine précises pour prestataires."
     },
     analyse: {
-      title: "Analyse des parcours utilisateurs",
-      text: "J’observe et analyse le comportement des visiteurs sur votre site afin d’identifier les points de friction et proposer des optimisations stratégiques."
+      title: "Optimisation multi-canaux",
+      text: "Synchronisation stock Prestashop physique/online, préparation commandes Rakuten/LeBonCoin, intégration WhatsApp auto-réponses, animation Facebook selon guidelines CRM.."
     }
   };
 
