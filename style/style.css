@@ -221,7 +221,6 @@
     align-items: center;
     justify-content: flex-start;
     min-height: 60vh;
-    padding: 4rem 0;
   }
   
   .hero-content {
@@ -600,7 +599,7 @@
     
     .services-list {
       flex-direction: row !important;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       width: 100%;
       gap: 12px;
       margin-bottom: 20px;
