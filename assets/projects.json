@@ -64,39 +64,25 @@
     {
       "ID": "etikashion",
       "NomProjet": "Etikashion",
-      "ShortDesc": "Création de la boutique sous Joomla, rédaction SEO et mise en place de Google Analytics.",
+      "ShortDesc": "Création de boutique e-commerce avec une gestion de franchisé sous WordPress, rédaction SEO et mise en place de Google Analytics.",
       "PhraseAccroche": "E-commerce responsable, optimisé pour le SEO",
       "AProposEntreprise": "Etikashion est une boutique en ligne de mode éthique.",
       "Missions": [
-        "Création de la boutique",
+        "Création de la boutique e-commerce",
         "Rédaction SEO",
         "Intégration Analytics"
       ],
       "Secteur": "E-commerce",
-      "Localisation": "Lyon",
-      "Duree": "Jan 2023 - Avr 2023",
+      "Localisation": "Paris",
+      "Duree": "Oct 2024 - Janv 2024",
       "Image": "assets/images/etikashion.jpg",
       "LienExterne": "",
       "gallery": [
         {
-          "category": "Projet Coffrets Cadeaux",
+          "category": "Création de site e-commerce",
           "images": [
             "assets/logis/logis-hotels-mobile.png",
             "assets/logis/mockup-coffret-2.png"
-          ]
-        },
-        {
-          "category": "A/B Tests",
-          "images": [
-            "assets/logis/abtest-landing.png",
-            "assets/logis/abtest-header.png"
-          ]
-        },
-        {
-          "category": "Maquettes UX/UI",
-          "images": [
-            "assets/logis/figma-maquette-1.png",
-            "assets/logis/figma-maquette-2.png"
           ]
         }
       ]
@@ -114,29 +100,15 @@
       ],
       "Secteur": "Retail",
       "Localisation": "Paris",
-      "Duree": "Mai 2022 - Juil 2022",
+      "Duree": "Janv 2023 - Oct 2023",
       "Image": "assets/images/maisonaudio.jpg",
       "LienExterne": "",
       "gallery": [
         {
-          "category": "Projet Coffrets Cadeaux",
+          "category": "Création de site e-commerce",
           "images": [
             "assets/logis/logis-hotels-mobile.png",
             "assets/logis/mockup-coffret-2.png"
-          ]
-        },
-        {
-          "category": "A/B Tests",
-          "images": [
-            "assets/logis/abtest-landing.png",
-            "assets/logis/abtest-header.png"
-          ]
-        },
-        {
-          "category": "Maquettes UX/UI",
-          "images": [
-            "assets/logis/figma-maquette-1.png",
-            "assets/logis/figma-maquette-2.png"
           ]
         }
       ]
