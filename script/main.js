@@ -52,24 +52,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const servicesContent = {
     seo: {
-      title: "Visibilité fiche Google optimisée",
-      text: "Création et optimisation fiches établissement Partoo pour top 3 local, récolte avis clients, animation de votre fiche d'établissement régulière."
+      title: "Renfort digital en alternance",
+      text: "Soutien opérationnel pour les équipes marketing digitales : intégration de maquettes simple, mise à jour de contenus et amélioration de l'expérience utilisateur, pour avancer plus vite sur les projets web."
     },
     content: {
-      title: "Sites low-code sur-mesure",
-      text: "Landing pages WordPress 100% sur-mesure livrées en 7 jours, home saisonnières adaptées aux promotions, maquettes Figma marque blanche pour extensions business."
+      title: "Création de sites vitrines",
+      text: "Conception de site vitrines clairs, modernes et responsives pour petites entreprises et indépendants, afin de présenter l'activité de façon professionnelle et de générer davantage de prises de contact."
     },
     uxui: {
-      title: "Contenus web optimisés SEO",
-      text: "Textes accrocheurs pour landing pages, optimisation on-page SEO (titres, meta, structure), contenus indexables rapidement, pages structurées pour Google."
+      title: "Refonte de sites existants",
+      text: "Mise à niveau de sites déjà en ligne pour les rendre plus lisibles, actuels et efficaces. Structure, contenus et design sont retravaillées pour mieux parler aux clients et soutenir les objectifs business."
     },
     creation: {
-      title: "Testeuse UX/logiciels",
-      text: "Analyse frictions invisibles avec Hotjar, test parcours stratégiques (panier, réservation), NPS pages clés, specs Redmine précises pour prestataires."
+      title: "Conception de landing pages",
+      text: "Création de pages uniques dédiées à une offre, un produit ou un évènement. Chaque section est pensée pour guider le visiteur vers une action précise : demande de devis, inscription ou prise de contact."
     },
     analyse: {
-      title: "Optimisation multi-canaux",
-      text: "Synchronisation stock Prestashop physique/online, préparation commandes Rakuten/LeBonCoin, intégration WhatsApp auto-réponses, animation Facebook selon guidelines CRM.."
+      title: "Testeuse UX/logiciels",
+      text: "Analyse frictions invisibles avec Hotjar, test parcours stratégiques (panier, réservation), NPS pages clés, specs Redmine précises pour prestataires."
     }
   };
 
