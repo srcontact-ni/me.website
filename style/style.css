@@ -692,9 +692,7 @@
       display: none;
     }
     
-    /* Services mobile */
 /* Services mobile - SCROLL HORIZONTAL */
-@media (max-width: 768px) {
   .services-container {
     flex-direction: row !important;
     position: relative;
@@ -803,7 +801,6 @@
     .contact-form {
       padding: 25px;
     }
-  }
 
   @media (max-width: 480px) {
     .service-item {
