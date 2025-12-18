@@ -36,24 +36,10 @@
       "LienExterne": "https://logishotels.example",
       "gallery": [
         {
-          "category": "Projet Coffrets Cadeaux",
+          "category": "Création de Page d'atterissage (Contenu, visuels)",
           "images": [
             "assets/img/logishotels/logis-hotels-mobile.png",
             "assets/logis/mockup-coffret-2.png"
-          ]
-        },
-        {
-          "category": "A/B Tests",
-          "images": [
-            "assets/logis/abtest-landing.png",
-            "assets/logis/abtest-header.png"
-          ]
-        },
-        {
-          "category": "Maquettes UX/UI",
-          "images": [
-            "assets/logis/figma-maquette-1.png",
-            "assets/logis/figma-maquette-2.png"
           ]
         }
       ]
