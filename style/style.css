@@ -663,270 +663,340 @@
   /* ==========================================================================
      12. CONTACT
      ========================================================================== */
-  .contact-section {
-    padding: 80px 20px;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-   
-  .contact-section h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-   
-  .contact-intro {
-    max-width: 600px;
-    text-align: center;
-    margin-bottom: 40px;
-    color: #555;
-    line-height: 1.6;
-  }
-   
-  .contact-form {
-    background-color: #f9f9f9;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    max-width: 600px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-   
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-   
-  .form-group label {
-    margin-bottom: 6px;
-    font-weight: 600;
-    color: #333;
-  }
-   
-  .form-group input,
-  .form-group textarea {
-    padding: 12px 15px;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
-  }
-   
-  .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: #000;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
-    outline: none;
-  }
-   
-  .btn-submit {
-    background-color: #000;
-    color: #fff;
-    padding: 14px;
-    border: none;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-   
-  .btn-submit:hover {
-    background-color: #333;
-    transform: translateY(-2px);
-  }
-   
   /* ==========================================================================
+     12. CONTACT
+     ========================================================================== */
+.contact-section {
+  padding: 80px 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.contact-intro {
+  max-width: 520px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #555;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Carte formulaire épurée */
+.contact-form {
+  width: 100%;
+  max-width: 560px;
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #eee;
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Ligne avec 2 champs côte à côte sur desktop (Nom / Email) */
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* Groupes de champs */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  background-color: #fafafa;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #427BFF;
+  box-shadow: 0 0 0 2px rgba(66, 123, 255, 0.15);
+  background-color: #fff;
+}
+
+/* Consentement RGPD */
+.form-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 4px;
+}
+
+.form-consent input[type="checkbox"] {
+  margin-top: 3px;
+}
+
+/* Bouton – cohérent avec le hero */
+.btn-submit {
+  align-self: flex-start;
+  margin-top: 8px;
+  background-color: #427BFF;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: #2f66e0;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(47, 102, 224, 0.25);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Message de retour */
+.form-response {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+/* ==========================================================================
      13. MEDIA QUERIES (Mobile First)
      ========================================================================== */
-  @media (max-width: 768px) {
-    /* Container */
-    .container-width {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    
-    /* Navbar mobile */
-    .nav-toggle {
-      display: block;
-    }
-    
-    .nav-links {
-      max-width: 200px;
-      position: fixed;
-      top: 0;
-      left: -100%;
-      height: 100vh;
-      width: 250px;
-      background: #222;
-      flex-direction: column;
-      align-items: flex-start;
-      padding-top: 60px;
-      transition: left 0.3s ease;
-      z-index: 1000;
-    }
-    
-    .nav-links.active {
-      left: 0;
-    }
-    
-    .nav-links li {
-      margin: 20px;
-    }
-    
-    body.menu-open {
-      overflow: hidden;
-    }
-    
-    /* Hero mobile */
-    .hero-section {
-      flex-direction: column;
-      text-align: left;
-    }
-    
-    .hero-content h1 {
-      font-size: 40px;
-    }
-    
-    .hero-visual img {
-      display: none;
-    }
-  
-    /* Services mobile : liste scrollable, détail en dessous */
-    .services-container {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 16px;
-    }
-  
-    .services-list {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 12px;
-      width: 100%;
-      padding: 10px 10px 16px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-  
-    .services-list::-webkit-scrollbar {
-      display: none;
-    }
-  
-    .service-item {
-      flex: 0 0 auto;
-      min-width: 200px;
-      max-width: 260px;
-      text-align: center;
-      scroll-snap-align: start;
-    }
-  
-    .service-detail {
-      width: 100%;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      border-radius: 16px;
-    }
-  
-    /* Footer mobile */
-    .footer-top {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    
-    /* Cards mobile */
-    .cards-container {
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 25px;
-    }
-    
-    .card {
-      width: 100%;
-      max-height: none;
-    }
-  
-    .timeline::before {
-      left: 10px;
-    }
-    
-    .timeline-item {
-      padding-left: 40px;
-    }
-    
-    .timeline-dot {
-      left: 4px;
-    }
-  
-    .contact-form {
-      padding: 25px;
-    }
-  
-    /* Projet détail – mobile */
-    .project-detail {
-      padding: 20px 0;
-    }
-  
-    .project-grid {
-      display: block;              /* on empile main + aside */
-    }
-  
-    .project-main {
-      margin-bottom: 20px;
-    }
-  
-    .project-card-static {
-      margin-bottom: 30px;         /* card infos juste au-dessus de la galerie */
-    }
-  
-    .gallery-grid {
-      justify-content: center;
-    }
-  
-    .gallery-card {
-      flex: 1 1 100%;
-      max-width: 100%;
-    }
+@media (max-width: 768px) {
+  /* Container */
+  .container-width {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
   
-  @media (max-width: 480px) {
-    .service-item {
-      flex: 1 1 100%;
-    }
-  
-    .container-width {
-      padding: 0 15px;
-      max-width: 500px;
-    }
+  /* Navbar mobile */
+  .nav-toggle {
+    display: block;
   }
   
-  @media (max-width: 320px) {
-    .service-item {
-      flex: 1 1 100%;
-    }
-  
-    .container-width {
-      padding: 0 15px;
-      max-width: 500px;
-    }
-  
-    main {
-      flex: 1;
-      padding: 20px 0;
-    }
-    
-    main .container-width {
-      padding: 20px 0;
-    }
+  .nav-links {
+    max-width: 200px;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 250px;
+    background: #222;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    z-index: 1000;
   }
   
+  .nav-links.active {
+    left: 0;
+  }
+  
+  .nav-links li {
+    margin: 20px;
+  }
+  
+  body.menu-open {
+    overflow: hidden;
+  }
+  
+  /* Hero mobile */
+  .hero-section {
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .hero-content h1 {
+    font-size: 40px;
+  }
+  
+  .hero-visual img {
+    display: none;
+  }
+
+  /* Services mobile : liste scrollable, détail en dessous */
+  .services-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .services-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 10px 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .services-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .service-item {
+    flex: 0 0 auto;
+    min-width: 200px;
+    max-width: 260px;
+    text-align: center;
+    scroll-snap-align: start;
+  }
+
+  .service-detail {
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border-radius: 16px;
+  }
+
+  /* Footer mobile */
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* Cards mobile */
+  .cards-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+  
+  .card {
+    width: 100%;
+    max-height: none;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+  
+  .timeline-item {
+    padding-left: 40px;
+  }
+  
+  .timeline-dot {
+    left: 4px;
+  }
+
+  /* Contact mobile */
+  .contact-section {
+    padding: 60px 0;
+  }
+
+  .contact-form {
+    padding: 22px 18px 20px;
+    border-radius: 16px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .btn-submit {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Projet détail – mobile */
+  .project-detail {
+    padding: 20px 0;
+  }
+
+  .project-grid {
+    display: block;              /* on empile main + aside */
+  }
+
+  .project-main {
+    margin-bottom: 20px;
+  }
+
+  .project-card-static {
+    margin-bottom: 30px;         /* card infos juste au-dessus de la galerie */
+  }
+
+  .gallery-grid {
+    justify-content: center;
+  }
+
+  .gallery-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-item {
+    flex: 1 1 100%;
+  }
+
+  .container-width {
+    padding: 0 15px;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 320px) {
+  .service-item {
+    flex: 1 1 100%;
+  }
+
+  .container-width {
+    padding: 0 15px;
+    max-width: 500px;
+  }
+
+  main {
+    flex: 1;
+    padding: 20px 0;
+  }
+  
+  main .container-width {
+    padding: 20px 0;
+  }
+}

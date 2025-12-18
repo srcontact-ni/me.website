@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Détails projet - Portfolio Sarobidy</title>
-  <link rel="stylesheet" href="style/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>me.website</title>
+  <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-  <!-- HEADER -->
+  <!-- Conteneurs pour header et footer -->
   <header>
     <nav class="navbar">
       <div class="container-width">
-        <div class="nav-logo">
-          <a href="index.html">Portfolio</a>
-        </div>
-        <div class="nav-toggle" id="navToggle">☰</div>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html">Accueil</a></li>
-          <li class="has-submenu">Services
-            <ul class="submenu">
-              <li><a href="index.html#seo">Optimisation SEO</a></li>
-              <li><a href="index.html#content">Gestion de contenu web</a></li>
-              <li><a href="index.html#uxui">UX / UI Design</a></li>
-              <li><a href="index.html#creation">Création de sites et d’interfaces</a></li>
-              <li><a href="index.html#analyse">Analyse des parcours utilisateurs</a></li>
-            </ul>
-          </li>
-          <li class="has-submenu">
-            <a href="realisations.html">Réalisations</a>
-            <ul class="submenu">
-              <li><a href="project.html?id=logishotels">Logis Hôtels</a></li>
-              <li><a href="project.html?id=etikashion">Etikashion</a></li>
-              <li><a href="project.html?id=maisonaudio">Maison Audio Center</a></li>
-            </ul>
-          </li>
-          <li><a href="mesinfos.html">Mes Infos</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <div class="nav-logo"> 
+        <a href="index.html">me.website</a>
       </div>
+      <div class="nav-toggle" id="navToggle">☰</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Accueil</a></li>
+        <li class="has-submenu">
+          <a href="#services">Services</a>
+          <ul class="submenu">
+            <li><a href="#seo">Renfort digital en alternance</a></li>
+            <li><a href="#content">Création de site internet vitrines</a></li>
+            <li><a href="#uxui">Refonte de sites existants</a></li>
+            <li><a href="#creation">Conception landing pages</a></li>
+            <li><a href="#analyse">Testeuse de logiciels</a></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <a href="#realisations">Réalisations</a>
+          <ul class="submenu">
+            <li><a href="https://srcontact-ni.github.io/me.website/project.html?id=logishotels">Logis Hôtels</a></li>
+            <li><a href="https://srcontact-ni.github.io/me.website/project.html?id=etikashion">Etikashion</a></li>
+            <li><a href="https://srcontact-ni.github.io/me.website/project.html?id=maisonaudio">Maison Audio Center</a></li>
+          </ul>
+        </li>        
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
     </nav>
   </header>
 
@@ -88,51 +88,50 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container-width">
-      <div class="footer-top">
-        <div class="footer-logo-desc">
-          <img src="assets/img/logos/logo-footer.png" alt="Logo" class="footer-logo">
-          <p>Votre entreprise - Optimisation digitale et projets web.</p>
-        </div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container-width">
+  <div class="footer-top">
+    <!-- Logo + description -->
+    <div class="footer-logo-desc">
+      <img src="assets/img/logos/logo-footer.png" alt="Logo" class="footer-logo">
+      <p>me.website - Optimisation digitale et projets web.</p>
+    </div>
 
-        <div class="footer-nav">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="realisations.html">Réalisations</a></li>
-            <li><a href="project.html?id=logishotels">Logis Hôtels</a></li>
-            <li><a href="project.html?id=etikashion">Etikashion</a></li>
-            <li><a href="project.html?id=maisonaudio">Maison Audio Center</a></li>
-            <li><a href="mesinfos.html">Mes infos</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
+    <!-- Liens navigation -->
+    <div class="footer-nav">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
 
-        <div class="footer-links">
-          <h4>Liens utiles</h4>
-          <ul>
-            <li><a href="https://srcontact-ni.github.io/me.website/mentionslegales">Mentions légales</a></li>
-            <li><a href="https://srcontact-ni.github.io/me.website/politiquergpd">Politique RGPD</a></li>
-            <li><a href="conditions-utilisation.html">Conditions d'utilisation</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
+    <!-- Liens utiles -->
+    <div class="footer-links">
+      <h4>Liens utiles</h4>
+      <ul>
+        <li><a href="https://srcontact-ni.github.io/mentionslegales.html">Mentions légales</a></li>
+        <li><a href="https://srcontact-ni.github.io/me.website/politiquergpd">Politique RGPD</a></li>
+        <li><a href="/conditions-utilisation.html">Conditions d'utilisation</a></li>
+      </ul>
+    </div>
 
-        <div class="footer-social">
-          <h4>Suivez-nous</h4>
-          <div class="social-icons">
-            <a href="https://linkedin.com" target="_blank">
-              <img src="assets/img/icons/linkedin.svg" alt="LinkedIn">
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2025 Votre Entreprise. Tous droits réservés.</p>
+    <!-- Réseaux sociaux -->
+    <div class="footer-social">
+      <h4>Suivez-nous</h4>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/sarobidy-ralijaona/" target="_blank"><img src="assets/img/logos/LinkedIn_logo_initials.png" alt="LinkedIn"></a>
       </div>
     </div>
-  </footer>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 me.website . Tous droits réservés.</p>
+  </div>
+</div>
+</footer>
 
   <script src="script/main.js"></script>
 </body>
