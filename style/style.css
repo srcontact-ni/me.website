@@ -671,7 +671,7 @@
   @media (max-width: 768px) {
     /* Container */
     .container-width {
-      max-width: 20px;    /* même logique que desktop */
+      max-width: 500px;    /* même logique que desktop */
       margin: 0 auto;
       padding: 0 20px;      /* pas de 0 ni 15px trop serré */
     }
@@ -729,35 +729,37 @@
     gap: 16px;
   }
 
-  .services-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;               /* Scroll horizontal */
-    scroll-snap-type: x mandatory;
-    gap: 12px;
-    width: 100%;
-    padding-bottom: 8px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .services-list::-webkit-scrollbar {
-    display: none;
-  }
-
-  .service-item {
-    flex: 0 0 auto;                 /* Pas de wrap, largeur auto */
-    min-width: 180px;
-    max-width: 220px;
-    text-align: center;
-    scroll-snap-align: start;
-  }
-
-  .service-detail {
-    width: 100% !important;         /* Sous la liste, pleine largeur */
-    padding: 20px;
-  }
+    .services-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 12px;
+      width: 100%;
+      padding: 10px 10px 16px;    /* padding horizontal pour ne pas coller au bord */
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+  
+    .services-list::-webkit-scrollbar {
+      display: none;
+    }
+  
+    .service-item {
+      flex: 0 0 auto;
+      min-width: 200px;
+      max-width: 260px;
+      text-align: center;
+      scroll-snap-align: start;
+    }
+  
+    .service-detail {
+      width: 100%;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      border-radius: 16px;
+    }
 
   /* Si tu veux des flèches, tu les ajoutes EN DEHORS de .services-list,
      et tu les positionnes sans toucher .service-detail */
