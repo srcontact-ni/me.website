@@ -19,7 +19,7 @@
   }
   
   /* ==========================================================================
-     2. CONTAINER GLOBAL (1200px centré partout)
+     2. CONTAINER GLOBAL
      ========================================================================== */
   .container-width {
     max-width: 1000px;
@@ -309,82 +309,82 @@
   /* ==========================================================================
      10. RÉALISATIONS CARDS
      ========================================================================== */
-     .realisations {
-      text-align: center;
-    }
-
-        /* Liens et textes non soulignés dans les réalisations */
-    .realisations a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .realisations a:hover {
-      text-decoration: none;
-    }
-
-    /* Au cas où un navigateur force encore l’underline */
-    .realisations .card-content h3,
-    .realisations .card-content p,
-    .realisations .tag {
-      text-decoration: none;
-    }
-    
-    .cards-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    
-    .card {
-      flex: 1 1 280px;
-      max-width: 320px;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      overflow: hidden;
-      max-height: 500px;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-decoration: none;
-    }
-    
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-    }
-    
-    .card-visual {
-      width: 100%;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #f5f5f5;
-    }
-    
-    .card-visual img {
-      max-width: 90%;
-      max-height: 90%;
-      object-fit: contain;
-    }
-    
-    .card-content {
-      padding: 15px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    
-    .card-content h3 {
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-      color: #333;
-    }    
+  .realisations {
+    text-align: center;
+  }
+  
+  /* Liens et textes non soulignés dans les réalisations */
+  .realisations a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .realisations a:hover {
+    text-decoration: none;
+  }
+  
+  /* Au cas où un navigateur force encore l’underline */
+  .realisations .card-content h3,
+  .realisations .card-content p,
+  .realisations .tag {
+    text-decoration: none;
+  }
+  
+  .cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    flex: 1 1 280px;
+    max-width: 320px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  }
+  
+  .card-visual {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+  }
+  
+  .card-visual img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+  }
+  
+  .card-content {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card-content h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #333;
+  }
   
   .tags {
     display: flex;
@@ -407,71 +407,108 @@
     color: #fff;
     border: none;
   }
-
-  /*Projet détail */
+  
+  /* ==========================================================================
+     10bis. PROJET DÉTAIL
+     ========================================================================== */
+  
   .project-detail { 
     max-width: 1100px; 
     margin: 0 auto; 
-    padding: 40px; 
-  } 
-
+    padding: 40px 0; 
+  }
+  
+  .project-header h1 {
+    margin-bottom: 5px;
+  }
+  
+  .project-header .short-desc {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .project-header .phrase-accroche { 
+    font-weight: 600; 
+    color: #333; 
+    margin-bottom: 20px; 
+  }
+  
+  /* Grille : contenu + aside infos */
   .project-grid { 
     display: grid; 
     grid-template-columns: 1fr 320px; 
     gap: 30px; 
-    align-items: start; 
+    align-items: flex-start; 
   }
   
-  .project-header .phrase-accroche { 
-    font-weight:600; 
-    color:#333; 
-    margin-top:10px; 
-  }
-
-  .sites-groupe {
+  /* Colonne principale */
+  .project-main h2 {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .project-main p {
+    margin-bottom: 10px;
+  }
+  
+  /* Card Informations (aside) */
+  .project-card-static { 
+    background: #fff; 
+    padding: 20px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06); 
+    font-size: 0.95rem;
+  } 
+  
+  .project-card-static h3 { 
+    margin-top: 0; 
+    margin-bottom: 15px;
+  } 
+  
+  .project-card-static div {
+    margin-bottom: 8px;
+  }
+  
+  .project-card-static a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: 600;
+  }
+  
+  /* Sites du groupe */
+  .sites-groupe {
+    margin: 15px 0 25px;
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
   }
   
   .sites-groupe a img {
-    width: 80px; /* taille fixe, modifiable */
+    width: 80px;
     height: 80px;
     object-fit: contain;
     border-radius: 8px;
     transition: transform 0.2s ease;
   }
- 
+  
   .sites-groupe a img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
-
-  .project-card-static { 
-    background:#fff; 
-    padding:20px; 
-    border-radius:12px; 
-    box-shadow:0 4px 12px rgba(0,0,0,0.06); 
-  } 
-   
-  .project-card-static h3 { 
-  margin-top:0; 
-  } 
-    
-    
+  
+  /* Missions */
   .missions-list {
     margin-bottom: 20px;
   }
   
-  .missions-list .mission-item { 
-    font-size:1.05rem; 
-    padding:10px 0; 
-    border-bottom:1px solid #eee; 
-    font-weight:600;
+  .mission-item { 
+    font-size: 1rem; 
+    padding: 8px 0; 
+    border-bottom: 1px solid #eee; 
+    font-weight: 500;
   } 
-    
-    
+  
+  /* Outils / Langages */
   .tools-list {
     display: flex;
     flex-wrap: wrap;
@@ -479,8 +516,7 @@
     justify-content: flex-start;
     margin-bottom: 20px;
   }
-    
-    
+  
   .tool-item {
     width: 110px;
     display: flex;
@@ -494,99 +530,139 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     font-size: 14px;
   }
-      
+  
   .tool-item img {
     width: 24px;
     height: 24px;
     object-fit: contain;
     margin-bottom: 8px;
   }
-    
-    
+  
   .tool-item span {
     font-size: 14px;
     font-weight: 500;
   }
+  
+  /* Galerie projet */
+  .project-gallery {
+    margin-top: 40px;
+  }
+  
+  .project-gallery h3 {
+    margin-bottom: 15px;
+  }
+  
+  .gallery-block {
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  
+  .gallery-block h4 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .gallery-card {
+    flex: 1 1 220px;
+    max-width: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    background: #fff;
+  }
+  
+  .gallery-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* ==========================================================================
+     11. TIMELINE MES INFOS
+     ========================================================================== */
+  .timeline-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+  }
     
-  /* Timeline Mes Infos */  
-.timeline-section {
-  padding: 60px 20px;
-  background-color: #f9f9f9;
-}
+  .timeline-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ddd;
+  }
+  
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 50px;
+  }
+  
+  .timeline-dot {
+    position: absolute;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    background-color: #222;
+    border-radius: 50%;
+  }
+  
+  .timeline-content {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 700px; 
+  }
    
-.timeline-section h2 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2rem;
-}
-
-
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: #ddd;
-}
-
-
-.timeline-item {
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-  padding-left: 50px;
-}
-
-
-.timeline-dot {
-  position: absolute;
-  left: 12px;
-  width: 16px;
-  height: 16px;
-  background-color: #222;
-  border-radius: 50%;
-}
-
-
-.timeline-content {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  max-width: 700px; }
- 
   .timeline-content h3 {
     margin: 0;
     font-size: 1.2rem;
     font-weight: 600;
   }
- 
+   
   .timeline-date {
     display: inline-block;
     margin-top: 6px;
     font-size: 0.9rem;
     color: #777;
   }
- 
+   
   .timeline-content p {
     margin-top: 10px;
     font-size: 0.95rem;
     line-height: 1.5;
     color: #333;
   }
-
+  
+  /* ==========================================================================
+     12. CONTACT
+     ========================================================================== */
   .contact-section {
     padding: 80px 20px;
     background-color: #fff;
@@ -594,13 +670,13 @@
     flex-direction: column;
     align-items: center;
   }
- 
+   
   .contact-section h2 {
     font-size: 2rem;
     margin-bottom: 10px;
     text-align: center;
   }
- 
+   
   .contact-intro {
     max-width: 600px;
     text-align: center;
@@ -608,7 +684,7 @@
     color: #555;
     line-height: 1.6;
   }
- 
+   
   .contact-form {
     background-color: #f9f9f9;
     padding: 40px;
@@ -620,18 +696,18 @@
     flex-direction: column;
     gap: 20px;
   }
- 
+   
   .form-group {
     display: flex;
     flex-direction: column;
   }
- 
+   
   .form-group label {
     margin-bottom: 6px;
     font-weight: 600;
     color: #333;
   }
- 
+   
   .form-group input,
   .form-group textarea {
     padding: 12px 15px;
@@ -640,14 +716,14 @@
     font-size: 1rem;
     transition: border-color 0.3s, box-shadow 0.3s;
   }
- 
+   
   .form-group input:focus,
   .form-group textarea:focus {
     border-color: #000;
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
     outline: none;
   }
- 
+   
   .btn-submit {
     background-color: #000;
     color: #fff;
@@ -659,21 +735,21 @@
     cursor: pointer;
     transition: all 0.3s ease;
   }
- 
+   
   .btn-submit:hover {
     background-color: #333;
     transform: translateY(-2px);
   }
-  
+   
   /* ==========================================================================
-     11. MEDIA QUERIES (Mobile First)
+     13. MEDIA QUERIES (Mobile First)
      ========================================================================== */
   @media (max-width: 768px) {
     /* Container */
     .container-width {
-      max-width: 500px;    /* même logique que desktop */
+      max-width: 500px;
       margin: 0 auto;
-      padding: 0 20px;      /* pas de 0 ni 15px trop serré */
+      padding: 0 20px;
     }
     
     /* Navbar mobile */
@@ -721,14 +797,14 @@
     .hero-visual img {
       display: none;
     }
-
-/* Services mobile : liste scrollable, detail en dessous */
-  .services-container {
-    flex-direction: column;         /* Colonne : liste puis detail */
-    align-items: stretch;      /* Prend toute la largeur du container-width */
-    gap: 16px;
-  }
-
+  
+    /* Services mobile : liste scrollable, détail en dessous */
+    .services-container {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+    }
+  
     .services-list {
       display: flex;
       flex-direction: row;
@@ -737,7 +813,7 @@
       scroll-snap-type: x mandatory;
       gap: 12px;
       width: 100%;
-      padding: 10px 10px 16px;    /* padding horizontal pour ne pas coller au bord */
+      padding: 10px 10px 16px;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
     }
@@ -760,10 +836,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
       border-radius: 16px;
     }
-
-  /* Si tu veux des flèches, tu les ajoutes EN DEHORS de .services-list,
-     et tu les positionnes sans toucher .service-detail */
-    
+  
     /* Footer mobile */
     .footer-top {
       flex-direction: column;
@@ -772,9 +845,9 @@
     
     /* Cards mobile */
     .cards-container {
-      flex-direction: row;   /* reste en ligne */
+      flex-direction: row;
       flex-wrap: wrap;
-      justify-content: center; /* rester centré */
+      justify-content: center;
       gap: 25px;
     }
     
@@ -782,30 +855,55 @@
       width: 100%;
       max-height: none;
     }
-
+  
     .timeline::before {
       left: 10px;
     }
-   
+    
     .timeline-item {
       padding-left: 40px;
     }
-   
+    
     .timeline-dot {
       left: 4px;
     }
-
+  
     .contact-form {
       padding: 25px;
     }
+  
+    /* Projet détail – mobile */
+    .project-detail {
+      padding: 20px 0;
+    }
+  
+    .project-grid {
+      display: block;              /* on empile main + aside */
+    }
+  
+    .project-main {
+      margin-bottom: 20px;
+    }
+  
+    .project-card-static {
+      margin-bottom: 30px;         /* card infos juste au-dessus de la galerie */
+    }
+  
+    .gallery-grid {
+      justify-content: center;
+    }
+  
+    .gallery-card {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
   }
-
+  
   @media (max-width: 480px) {
     .service-item {
       flex: 1 1 100%;
     }
-
-    /* Container */
+  
     .container-width {
       padding: 0 15px;
       max-width: 500px;
@@ -816,13 +914,12 @@
     .service-item {
       flex: 1 1 100%;
     }
-
-    /* Container */
+  
     .container-width {
       padding: 0 15px;
       max-width: 500px;
     }
-
+  
     main {
       flex: 1;
       padding: 20px 0;
@@ -832,5 +929,4 @@
       padding: 20px 0;
     }
   }
-
   
