@@ -23,10 +23,7 @@
         {"nom": "A/B Tasty", "logo":"assets/img/Toolsskills/AB_Tasty_Logo.jpg"},
         {"nom": "Figma", "logo":"assets/img/Toolsskills/AB_Tasty_Logo.jpg"},
         {"nom": "Hotjar", "logo":"assets/img/Toolsskills/AB_Tasty_Logo.jpg"},
-        {"nom": "Redmine", "logo": "assets/img/Toolsskills/logo-redmind.png"}
-      ],
-
-      "Langages": [
+        {"nom": "Redmine", "logo": "assets/img/Toolsskills/logo-redmind.png"},
         {"nom": "HTML", "logo":"assets/img/Toolsskills/joomla-logo-png-joomla-j-115632855400qbu7oigma.png"},
         {"nom": "CSS", "logo":"assets/img/Toolsskills/AB_Tasty_Logo.jpg"},
         {"nom": "Javascript", "logo":"assets/img/Toolsskills/AB_Tasty_Logo.jpg"}

@@ -153,7 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const sitesEl    = document.getElementById("projectSitesGroupe");
     const missionsEl = document.getElementById("projectMissions");
     const outilsEl   = document.getElementById("projectOutils");
-    const langagesEl = document.getElementById("projectLangages");
 
     if (titleEl)    titleEl.textContent    = project.NomProjet;
     if (descEl)     descEl.textContent     = project.ShortDesc;
@@ -183,14 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
       ).join("");
     }
 
-    if (langagesEl && project.Langages) {
-      langagesEl.innerHTML = project.Langages.map(l =>
-        `<div class="tool-item">
-           <img src="${l.logo}" alt="${l.nom}">
-           <span>${l.nom}</span>
-         </div>`
-      ).join("");
-    }
 
     const secteurEl      = document.getElementById("projectSecteur");
     const localisationEl = document.getElementById("projectLocalisation");
