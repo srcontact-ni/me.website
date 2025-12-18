@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
     }).join("");
-  };
+  }
 
   // ------------------------------
   // FORMULAIRE DE CONTACT
@@ -226,5 +226,29 @@ document.addEventListener("DOMContentLoaded", () => {
       formResponse.textContent = "Erreur lors de l'envoi ❌";
     });
   };
+
+    // ==============================
+  // SERVICES MOBILE SCROLL
+  // ==============================
+  function initServiceScroll() {
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const servicesList = document.querySelector('.services-list');
+    
+    if (prevBtn && nextBtn && servicesList && window.innerWidth <= 768) {
+      nextBtn.addEventListener('click', () => {
+        servicesList.scrollBy({ left: 300, behavior: 'smooth' });
+      });
+      
+      prevBtn.addEventListener('click', () => {
+        servicesList.scrollBy({ left: -300, behavior: 'smooth' });
+      });
+    }
+  }
+  
+  // Initialiser au chargement + resize
+  initServiceScroll();
+  window.addEventListener('resize', initServiceScroll);
+
 
 });

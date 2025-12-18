@@ -644,8 +644,8 @@
   @media (max-width: 768px) {
     /* Container */
     .container-width {
-      padding: 0 15px;
       max-width: 500px;
+      margin: 0 auto;
     }
     
     /* Navbar mobile */
@@ -691,82 +691,47 @@
     .hero-visual img {
       display: none;
     }
-    
-/* Services mobile - SCROLL HORIZONTAL */
+
+/* Services mobile : liste scrollable, detail en dessous */
   .services-container {
-    flex-direction: row !important;
-    position: relative;
-    overflow: hidden;
-    padding: 0 50px; /* Espace pour flèches */
+    flex-direction: column;         /* Colonne : liste puis detail */
+    align-items: stretch;           /* Prend toute la largeur du container-width */
+    gap: 16px;
   }
-  
+
   .services-list {
-    display: flex !important;
-    flex-direction: row !important;
+    display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
-    overflow-x: auto;
+    overflow-x: auto;               /* Scroll horizontal */
     scroll-snap-type: x mandatory;
     gap: 12px;
-    width: auto;
-    margin-bottom: 0;
-    padding: 20px 0;
+    width: 100%;
+    padding-bottom: 8px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
-  
+
   .services-list::-webkit-scrollbar {
     display: none;
   }
-  
+
   .service-item {
-    flex: 0 0 280px !important;
-    min-width: 280px !important;
-    max-width: 280px !important;
+    flex: 0 0 auto;                 /* Pas de wrap, largeur auto */
+    min-width: 180px;
+    max-width: 220px;
+    text-align: center;
     scroll-snap-align: start;
-    white-space: nowrap;
   }
-  
+
   .service-detail {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 300px !important;
-    max-width: 90vw;
-    min-height: auto;
-    padding: 25px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    z-index: 10;
+    width: 100% !important;         /* Sous la liste, pleine largeur */
+    padding: 20px;
   }
+
+  /* Si tu veux des flèches, tu les ajoutes EN DEHORS de .services-list,
+     et tu les positionnes sans toucher .service-detail */
   
-  /* FLÈCHES MOBILE */
-  .scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,123,255,0.9);
-    border: none;
-    color: white;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 20;
-    opacity: 0.8;
-    transition: all 0.3s ease;
-  }
-  
-  .scroll-btn:hover {
-    background: #007BFF;
-    opacity: 1;
-  }
-  
-  .prev-btn { left: 10px; }
-  .next-btn { right: 10px; }
 }
     
     /* Footer mobile */
