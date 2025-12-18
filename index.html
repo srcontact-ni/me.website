@@ -34,7 +34,7 @@
             <li><a href="https://srcontact-ni.github.io/me.website/project.html?id=maisonaudio">Maison Audio Center</a></li>
           </ul>
         </li>        
-        <li><a href="mesinfos.html">Mes Infos</a></li>
+        <li><a href="mesinfos.html">Infos</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -42,7 +42,7 @@
   </header>
 
   <main>
-    <div class="container-width">
+  <div class="container-width">
     <section class="hero-section">
       <div class="hero-content">
         <h1>Développons votre présence en ligne sur-mesure performante et conçue pour durer</h1>
@@ -56,7 +56,7 @@
   
 
   <section class="services">
-    <h2>Mes services</h2>
+    <h2>Services</h2>
     <div class="services-container">
       <!-- Colonne gauche : titres -->
       <div class="services-list">
@@ -75,13 +75,15 @@
   </section>
 
   <section class="realisations">
-    <h2>Mes réalisations</h2>
+    <h2>Réalisations</h2>
     <div class="cards-container" id="cardsContainer">
       <!-- Exemple de carte -->
       <div class="card">
         <a href="https://srcontact-ni.github.io/me.website/project.html?id=logishotels">
-        <img src="https://via.placeholder.com/320x180" alt="Projet Logis Hôtels">
-        <div class="card-content">
+        <div class="card-visual">
+          <img src="assets/img/logishotels/home-page-desktop-logis-hotels.png" alt="Projet Logis Hôtels">
+        </div>
+          <div class="card-content">
           <h3>Logis Hôtels</h3>
           <p>Intégration et optimisation des pages coffrets cadeaux, refonte des contenus et e-merchandising.</p>
           <div class="tags">
@@ -95,10 +97,12 @@
 
       <div class="card">
           <a href="https://srcontact-ni.github.io/me.website/project.html?id=etikashion">
-        <img src="https://via.placeholder.com/320x180" alt="Projet Etikashion">
-        <div class="card-content">
+          <div class="card-visual">
+            <img src="assets/img/etikashion/home-page-mobile-etikashion.png" alt="Projet Etikashion">
+          </div>
+            <div class="card-content">
           <h3>Etikashion</h3>
-          <p>Création de la boutique sous Joomla, rédaction SEO et mise en place de Google Analytics.</p>
+          <p>Création de la boutique sous Wordpress, rédaction SEO et mise en place de Google Analytics.</p>
           <div class="tags">
             <span class="tag">E-commerce</span>
             <span class="tag">SEO</span>
@@ -109,8 +113,10 @@
 
       <div class="card">
           <a href="https://srcontact-ni.github.io/me.website/project.html?id=maisonaudio">
-        <img src="https://via.placeholder.com/320x180" alt="Projet Maison Audio Center">
-        <div class="card-content">
+        <div class="card-visual">
+            <img src="assets/img/maisonaudiocenter/home-page-audio-center-desktop.png" alt="Projet Maison Audio Center">
+        </div>
+            <div class="card-content">
           <h3>Maison Audio Center</h3>
           <p>Développement d’un site vitrine optimisé SEO pour un commerce de produits audio haut de gamme.</p>
           <div class="tags">
@@ -121,9 +127,72 @@
         </div>
       </div>
 
+      <div class="card">
+        <a href="https://srcontact-ni.github.io/me.website/project.html?id=gestion-candidature">
+      <div class="card-visual">
+          <img src="assets/img/gestioncandidate/webapp-gestion-candidature.png" alt="webapp-gestion-candidature">
+      </div>
+          <div class="card-content">
+        <h3>WebApp - Gestion de candidatures</h3>
+        <p>Conception d'une WebApp de gestion de candidature avec rappel d'évènement agenda.</p>
+        <div class="tags">
+          <span class="tag">Retail</span>
+          <span class="tag">WordPress</span>
+          <span class="tag tag-duration">2 mois</span>
+        </div>
+      </div>
     </div>
+    </div>
+  </div>
+  </div>
   </section>
 
+  <section class="contact-section" id="contact">
+    <h2>Contactez-moi</h2>
+    <p class="contact-intro">
+      Une idée de projet, une collaboration ou simplement une question ?  
+      Envoyez-moi un message, je vous répondrai rapidement 💬
+    </p>
+  
+    <!-- ✅ Formulaire corrigé -->
+    <form id="contactForm" onsubmit="sendContact(event)" class="contact-form">
+      
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="societe">Société</label>
+        <input type="text" id="societe" name="societe" placeholder="Votre raison sociale">
+      </div>
+  
+      <div class="form-group">
+        <label for="tel">Téléphone</label>
+        <input type="tel" id="tel" name="tel" placeholder="Votre numéro de téléphone" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Adresse e-mail</label>
+        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Écrivez votre message ici..." required></textarea>
+      </div>
+  
+      <div class="form-group">
+        <input type="checkbox" id="consentement" name="consentement" required>
+        <label for="consentement">J'accepte le traitement de mes données</label>
+      </div>
+  
+      <button type="submit" class="btn-submit">Envoyer</button>
+      
+      <!-- Message de confirmation ou erreur -->
+      <div id="formResponse" style="margin-top:10px;"></div>
+    </form>
+  </section>
 </div>
 </main>
 

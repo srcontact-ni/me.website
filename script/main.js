@@ -15,37 +15,43 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==============================
-  // SOUS-MENUS
+  // SOUS-MENUS (mobile)
   // ==============================
   const submenuParents = document.querySelectorAll(".has-submenu > a");
+
   submenuParents.forEach(parent => {
     parent.addEventListener("click", e => {
-      if (window.innerWidth <= 768) { // seulement sur mobile
+      if (window.innerWidth <= 768) {
         e.preventDefault();
         const submenu = parent.nextElementSibling;
-        submenu.classList.toggle("active");
+        if (submenu) submenu.classList.toggle("active");
       }
     });
   });
 
-  // Scroll vers section depuis sous-menu
-  document.querySelectorAll('.submenu a').forEach(link => {
-    link.addEventListener('click', e => {
-      const targetId = link.getAttribute('href').replace('#', '');
+  // Scroll vers section depuis sous-menu services
+  document.querySelectorAll(".submenu a").forEach(link => {
+    link.addEventListener("click", e => {
+      const href = link.getAttribute("href");
+      if (!href || !href.startsWith("#")) return;
+
+      const targetId = href.replace("#", "");
       const targetBtn = document.getElementById(targetId);
 
       if (targetBtn) {
         e.preventDefault();
-        targetBtn.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        targetBtn.click(); // active le contenu dynamique
+        targetBtn.scrollIntoView({ behavior: "smooth", block: "start" });
+        targetBtn.click();
 
-        if (navLinks.classList.contains('active')) navLinks.classList.remove('active');
+        if (navLinks && navLinks.classList.contains("active")) {
+          navLinks.classList.remove("active");
+        }
       }
     });
   });
 
   // ==============================
-  // SERVICES
+  // SERVICES (contenu dynamique)
   // ==============================
   const serviceButtons = document.querySelectorAll(".service-item");
   const serviceDetail = document.getElementById("serviceDetail");
@@ -81,41 +87,50 @@ document.addEventListener("DOMContentLoaded", () => {
       const key = button.getAttribute("data-service");
       const content = servicesContent[key];
 
-      if(serviceDetail && content) {
+      if (serviceDetail && content) {
         serviceDetail.innerHTML = `<h3>${content.title}</h3><p>${content.text}</p>`;
       }
     });
   });
 
   // ==============================
-  // CLIC SUR LOGO OU H1 ACCUEIL
+  // SERVICES MOBILE : scroll au doigt
+  // ==============================
+  const servicesList = document.querySelector(".services-list");
+  if (servicesList) {
+    // Rien à faire en JS pour le scroll au doigt,
+    // c'est géré par le CSS : overflow-x: auto; -webkit-overflow-scrolling: touch; [web:4]
+  }
+
+  // ==============================
+  // CLIC SUR LOGO / H1 ACCUEIL
   // ==============================
   const accueilBtn = document.querySelector("header h1, .nav-logo a");
   if (accueilBtn) {
     accueilBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
   console.log("Scripts initiaux ✅");
 
   // ==============================
-  // CHARGEMENT DES PROJETS JSON
+  // CHARGEMENT DES PROJETS JSON (page projet.html)
   // ==============================
   let projectsData = [];
 
-  fetch('projects.json')
+  fetch("projects.json")
     .then(res => res.json())
     .then(data => {
       projectsData = data;
       console.log("Projets chargés ✅", projectsData);
 
       const urlParams = new URLSearchParams(window.location.search);
-      const projectId = urlParams.get('id');
+      const projectId = urlParams.get("id");
 
-      if(projectId) {
+      if (projectId) {
         const project = projectsData.find(p => p.ID === projectId);
-        if(project) {
+        if (project) {
           renderProjectDetails(project);
           renderGallery(project);
         } else {
@@ -129,48 +144,49 @@ document.addEventListener("DOMContentLoaded", () => {
   // AFFICHER LES DÉTAILS DU PROJET
   // ==============================
   function renderProjectDetails(project) {
-    const titleEl = document.getElementById("projectTitle");
-    const descEl = document.getElementById("projectDesc");
-    const aProposEl = document.getElementById("projectAPropos");
+    const titleEl     = document.getElementById("projectTitle");
+    const descEl      = document.getElementById("projectDesc");
+    const aProposEl   = document.getElementById("projectAPropos");
+    const sitesEl     = document.getElementById("projectSites");
+    const missionsEl  = document.getElementById("projectMissions");
+    const outilsEl    = document.getElementById("projectOutils");
+    const langagesEl  = document.getElementById("projectLangages");
 
-    if(titleEl) titleEl.textContent = project.NomProjet;
-    if(descEl) descEl.textContent = project.ShortDesc;
-    if(aProposEl) aProposEl.textContent = project.AProposEntreprise;
+    if (titleEl)   titleEl.textContent   = project.NomProjet;
+    if (descEl)    descEl.textContent    = project.ShortDesc;
+    if (aProposEl) aProposEl.textContent = project.AProposEntreprise;
 
-    // Logos sites du groupe
-    const sitesContainer = document.getElementById("projectSites");
-    if(sitesContainer && project.SitesGroupe) {
-      sitesContainer.innerHTML = project.SitesGroupe.map(site =>
+    if (sitesEl && project.SitesGroupe) {
+      sitesEl.innerHTML = project.SitesGroupe.map(site =>
         `<a href="${site.lien}" target="_blank" title="${site.nom}">
            <img src="${site.logo}" alt="${site.nom}">
-         </a>`).join("");
+         </a>`
+      ).join("");
     }
 
-    // Missions
-    const missionsContainer = document.getElementById("projectMissions");
-    if(missionsContainer && project.Missions) {
-      missionsContainer.innerHTML = project.Missions.map(m => `<li>${m}</li>`).join("");
+    if (missionsEl && project.Missions) {
+      missionsEl.innerHTML = project.Missions
+        .map(m => `<li>${m}</li>`)
+        .join("");
     }
 
-    // Outils
-    const outilsContainer = document.getElementById("projectOutils");
-    if(outilsContainer && project.Outils) {
-      outilsContainer.innerHTML = project.Outils.map(o =>
-        `<img src="${o.logo}" alt="${o.nom}" title="${o.nom}">`).join("");
+    if (outilsEl && project.Outils) {
+      outilsEl.innerHTML = project.Outils.map(o =>
+        `<img src="${o.logo}" alt="${o.nom}" title="${o.nom}">`
+      ).join("");
     }
 
-    // Langages
-    const langagesContainer = document.getElementById("projectLangages");
-    if(langagesContainer && project.Langages) {
-      langagesContainer.innerHTML = project.Langages.map(l =>
-        `<img src="${l.logo}" alt="${l.nom}" title="${l.nom}">`).join("");
+    if (langagesEl && project.Langages) {
+      langagesEl.innerHTML = project.Langages.map(l =>
+        `<img src="${l.logo}" alt="${l.nom}" title="${l.nom}">`
+      ).join("");
     }
   }
 
   // ==============================
   // FONCTION GALERIE
   // ==============================
-  window.renderGallery = function(project) {
+  window.renderGallery = function (project) {
     const container = document.getElementById("galleryContainer");
     if (!container || !project.gallery) return;
 
@@ -188,22 +204,22 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
     }).join("");
-  }
+  };
 
   // ------------------------------
   // FORMULAIRE DE CONTACT
   // ------------------------------
-  const contactForm = document.getElementById("contactForm");
-  const formResponse = document.getElementById("formResponse");
+  const contactForm   = document.getElementById("contactForm");
+  const formResponse  = document.getElementById("formResponse");
 
-  window.sendContact = function(e) {
+  window.sendContact = function (e) {
     e.preventDefault();
 
     const formData = {
-      nom: document.getElementById("nom").value,
+      nom:     document.getElementById("nom").value,
       societe: document.getElementById("societe").value,
-      tel: document.getElementById("tel").value,
-      email: document.getElementById("email").value,
+      tel:     document.getElementById("tel").value,
+      email:   document.getElementById("email").value,
       message: document.getElementById("message").value,
     };
 
@@ -212,43 +228,21 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(ENDPOINT_URL, {
       method: "POST",
       mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(formData)
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
     })
-    .then(() => {
-      formResponse.textContent = "Message envoyé ✅ Un email de confirmation vous a été envoyé.";
-      contactForm.reset();
-    })
-    .catch(err => {
-      console.error(err);
-      formResponse.textContent = "Erreur lors de l'envoi ❌";
-    });
+      .then(() => {
+        if (formResponse) {
+          formResponse.textContent = "Message envoyé ✅ Un email de confirmation vous a été envoyé.";
+        }
+        if (contactForm) contactForm.reset();
+      })
+      .catch(err => {
+        console.error(err);
+        if (formResponse) {
+          formResponse.textContent = "Erreur lors de l'envoi ❌";
+        }
+      });
   };
-
-    // ==============================
-  // SERVICES MOBILE SCROLL
-  // ==============================
-  function initServiceScroll() {
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    const servicesList = document.querySelector('.services-list');
-    
-    if (prevBtn && nextBtn && servicesList && window.innerWidth <= 768) {
-      nextBtn.addEventListener('click', () => {
-        servicesList.scrollBy({ left: 300, behavior: 'smooth' });
-      });
-      
-      prevBtn.addEventListener('click', () => {
-        servicesList.scrollBy({ left: -300, behavior: 'smooth' });
-      });
-    }
-  }
-  
-  // Initialiser au chargement + resize
-  initServiceScroll();
-  window.addEventListener('resize', initServiceScroll);
-
 
 });
