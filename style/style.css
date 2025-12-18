@@ -644,8 +644,11 @@
   @media (max-width: 768px) {
     /* Container */
     .container-width {
-      max-width: 500px;
       margin: 0 auto;
+    }
+
+    .main .container-width {
+      max-width: 350px;
     }
     
     /* Navbar mobile */
