@@ -1,7 +1,6 @@
 console.log("JavaScript chargé ✅");
 
 document.addEventListener("DOMContentLoaded", () => {
-
   // ==============================
   // MENU MOBILE (Hamburger)
   // ==============================
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Scroll vers section depuis sous-menu services
+  // Scroll vers section depuis sous-menu services (liens de type #seo, #content, etc.)
   document.querySelectorAll(".submenu a").forEach(link => {
     link.addEventListener("click", e => {
       const href = link.getAttribute("href");
@@ -63,11 +62,11 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     content: {
       title: "Création de sites vitrines",
-      text: "Conception de site vitrines clairs, modernes et responsives pour petites entreprises et indépendants, afin de présenter l'activité de façon professionnelle et de générer davantage de prises de contact."
+      text: "Conception de sites vitrines clairs, modernes et responsives pour petites entreprises et indépendants, afin de présenter l'activité de façon professionnelle et de générer davantage de prises de contact."
     },
     uxui: {
       title: "Refonte de sites existants",
-      text: "Mise à niveau de sites déjà en ligne pour les rendre plus lisibles, actuels et efficaces. Structure, contenus et design sont retravaillées pour mieux parler aux clients et soutenir les objectifs business."
+      text: "Mise à niveau de sites déjà en ligne pour les rendre plus lisibles, actuels et efficaces. Structure, contenus et design sont retravaillés pour mieux parler aux clients et soutenir les objectifs business."
     },
     creation: {
       title: "Conception de landing pages",
@@ -75,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     analyse: {
       title: "Testeuse UX/logiciels",
-      text: "Analyse frictions invisibles avec Hotjar, test parcours stratégiques (panier, réservation), NPS pages clés, specs Redmine précises pour prestataires."
+      text: "Analyse des frictions invisibles avec Hotjar, test des parcours stratégiques (panier, réservation), NPS sur les pages clés, spécifications précises pour les prestataires."
     }
   };
 
@@ -96,18 +95,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==============================
   // SERVICES MOBILE : scroll au doigt
   // ==============================
-  const servicesList = document.querySelector(".services-list");
-  if (servicesList) {
-    // Rien à faire en JS pour le scroll au doigt,
-    // c'est géré par le CSS : overflow-x: auto; -webkit-overflow-scrolling: touch; [web:4]
-  }
+  // Rien à faire ici, tout est géré par le CSS (overflow-x: auto).
 
   // ==============================
   // CLIC SUR LOGO / H1 ACCUEIL
   // ==============================
-  const accueilBtn = document.querySelector("header h1, .nav-logo a");
+  const accueilBtn = document.querySelector(".nav-logo a");
   if (accueilBtn) {
-    accueilBtn.addEventListener("click", () => {
+    accueilBtn.addEventListener("click", e => {
+      e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
@@ -115,46 +111,55 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("Scripts initiaux ✅");
 
   // ==============================
-  // CHARGEMENT DES PROJETS JSON (page projet.html)
+  // PAGE PROJET UNIQUEMENT (project.html)
   // ==============================
-  let projectsData = [];
+  // On détecte la présence de projectTitle pour ne pas lancer ça sur la home.
+  const projectTitleEl = document.getElementById("projectTitle");
+  if (projectTitleEl) {
+    let projectsData = [];
 
-  fetch("projects.json")
-    .then(res => res.json())
-    .then(data => {
-      projectsData = data;
-      console.log("Projets chargés ✅", projectsData);
+    fetch("assets/projects.json")
+      .then(res => res.json())
+      .then(data => {
+        projectsData = data;
+        console.log("Projets chargés ✅", projectsData);
 
-      const urlParams = new URLSearchParams(window.location.search);
-      const projectId = urlParams.get("id");
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get("id");
 
-      if (projectId) {
-        const project = projectsData.find(p => p.ID === projectId);
-        if (project) {
-          renderProjectDetails(project);
-          renderGallery(project);
-        } else {
-          console.warn("Projet introuvable pour l'ID :", projectId);
+        if (projectId) {
+          const project = projectsData.find(p => p.ID === projectId);
+          if (project) {
+            renderProjectDetails(project);
+            if (project.gallery) {
+              renderGallery(project);
+            }
+            renderRelatedProjects(projectsData, projectId);
+          } else {
+            console.warn("Projet introuvable pour l'ID :", projectId);
+          }
         }
-      }
-    })
-    .catch(err => console.error("Erreur chargement JSON :", err));
+      })
+      .catch(err => console.error("Erreur chargement JSON :", err));
+  }
 
   // ==============================
   // AFFICHER LES DÉTAILS DU PROJET
   // ==============================
   function renderProjectDetails(project) {
-    const titleEl     = document.getElementById("projectTitle");
-    const descEl      = document.getElementById("projectDesc");
-    const aProposEl   = document.getElementById("projectAPropos");
-    const sitesEl     = document.getElementById("projectSites");
-    const missionsEl  = document.getElementById("projectMissions");
-    const outilsEl    = document.getElementById("projectOutils");
-    const langagesEl  = document.getElementById("projectLangages");
+    const titleEl    = document.getElementById("projectTitle");
+    const descEl     = document.getElementById("projectDesc");
+    const accrocheEl = document.getElementById("phraseAccroche");
+    const aProposEl  = document.getElementById("projectAPropos");
+    const sitesEl    = document.getElementById("projectSitesGroupe");
+    const missionsEl = document.getElementById("projectMissions");
+    const outilsEl   = document.getElementById("projectOutils");
+    const langagesEl = document.getElementById("projectLangages");
 
-    if (titleEl)   titleEl.textContent   = project.NomProjet;
-    if (descEl)    descEl.textContent    = project.ShortDesc;
-    if (aProposEl) aProposEl.textContent = project.AProposEntreprise;
+    if (titleEl)    titleEl.textContent    = project.NomProjet;
+    if (descEl)     descEl.textContent     = project.ShortDesc;
+    if (accrocheEl) accrocheEl.textContent = project.PhraseAccroche || "";
+    if (aProposEl)  aProposEl.textContent  = project.AProposEntreprise || "";
 
     if (sitesEl && project.SitesGroupe) {
       sitesEl.innerHTML = project.SitesGroupe.map(site =>
@@ -166,27 +171,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (missionsEl && project.Missions) {
       missionsEl.innerHTML = project.Missions
-        .map(m => `<li>${m}</li>`)
+        .map(m => `<div class="mission-item">${m}</div>`)
         .join("");
     }
 
     if (outilsEl && project.Outils) {
       outilsEl.innerHTML = project.Outils.map(o =>
-        `<img src="${o.logo}" alt="${o.nom}" title="${o.nom}">`
+        `<div class="tool-item">
+           <img src="${o.logo}" alt="${o.nom}">
+           <span>${o.nom}</span>
+         </div>`
       ).join("");
     }
 
     if (langagesEl && project.Langages) {
       langagesEl.innerHTML = project.Langages.map(l =>
-        `<img src="${l.logo}" alt="${l.nom}" title="${l.nom}">`
+        `<div class="tool-item">
+           <img src="${l.logo}" alt="${l.nom}">
+           <span>${l.nom}</span>
+         </div>`
       ).join("");
+    }
+
+    // Infos statiques (secteur, localisation, durée, client, lien)
+    const secteurEl      = document.getElementById("projectSecteur");
+    const localisationEl = document.getElementById("projectLocalisation");
+    const dureeEl        = document.getElementById("projectDuree");
+    const clientEl       = document.getElementById("projectClient");
+    const linkEl         = document.getElementById("projectLink");
+
+    if (secteurEl)      secteurEl.textContent      = project.Secteur || "";
+    if (localisationEl) localisationEl.textContent = project.Localisation || "";
+    if (dureeEl)        dureeEl.textContent        = project.Duree || "";
+    if (clientEl)       clientEl.textContent       = project.NomProjet || "";
+
+    if (linkEl && project.LienExterne) {
+      linkEl.innerHTML = `<a href="${project.LienExterne}" target="_blank">Voir le projet</a>`;
     }
   }
 
   // ==============================
-  // FONCTION GALERIE
+  // FONCTION GALERIE (project.html)
   // ==============================
-  window.renderGallery = function (project) {
+  function renderGallery(project) {
     const container = document.getElementById("galleryContainer");
     if (!container || !project.gallery) return;
 
@@ -204,13 +231,42 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
     }).join("");
-  };
+  }
+
+  // ==============================
+  // AUTRES RÉALISATIONS (project.html)
+  // ==============================
+  function renderRelatedProjects(projects, currentId) {
+    const related = document.getElementById("relatedProjects");
+    if (!related) return;
+
+    related.innerHTML = "";
+
+    projects
+      .filter(p => p.ID !== currentId)
+      .forEach(p => {
+        const card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML = `
+          <a href="project.html?id=${encodeURIComponent(p.ID)}" class="card-link">
+            <div class="card-visual">
+              <img src="${p.Image}" alt="${p.NomProjet}" />
+            </div>
+            <div class="card-content">
+              <h3>${p.NomProjet}</h3>
+              <p>${p.ShortDesc}</p>
+            </div>
+          </a>
+        `;
+        related.appendChild(card);
+      });
+  }
 
   // ------------------------------
   // FORMULAIRE DE CONTACT
   // ------------------------------
-  const contactForm   = document.getElementById("contactForm");
-  const formResponse  = document.getElementById("formResponse");
+  const contactForm  = document.getElementById("contactForm");
+  const formResponse = document.getElementById("formResponse");
 
   window.sendContact = function (e) {
     e.preventDefault();
@@ -244,5 +300,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
   };
-
 });
