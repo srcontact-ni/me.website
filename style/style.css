@@ -317,21 +317,23 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    flex-wrap: wrap;
     gap: 20px;
-  }
+  }  
   
   .card {
+    flex: 1 1 280px;          /* largeur de base + autorise le wrap */
+    max-width: 320px;         /* limite max */
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     overflow: hidden;
-    width: 320px;
     max-height: 500px;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
-  }
+  }  
   
   .card:hover {
     transform: translateY(-5px);
@@ -747,7 +749,8 @@
     
     /* Cards mobile */
     .cards-container {
-      flex-direction: column;
+      flex-direction: row;   /* reste en ligne */
+      flex-wrap: wrap;
       gap: 15px;
     }
     
