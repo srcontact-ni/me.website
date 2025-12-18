@@ -112,6 +112,31 @@
           ]
         }
       ]
+    },
+    {
+      "ID": "gestioncandidature",
+      "NomProjet": "WebApp - Gestion candidature",
+      "ShortDesc": "Création d'une WebApp pour gérer nos recherches d'emplois.",
+      "PhraseAccroche": "Une bonne organisation pour trouver le job de ces rêves",
+      "AProposEntreprise": "Projet solo fait sur AppScript avec.",
+      "Missions": [
+        "Création WebApp",
+        "Intégration Google Agenda"
+      ],
+      "Secteur": "RH",
+      "Localisation": "Nantes",
+      "Duree": "Oct 2025 - Oct 2025",
+      "Image": "assets/images/etikashion.jpg",
+      "LienExterne": "",
+      "gallery": [
+        {
+          "category": "Création WebApp",
+          "images": [
+            "assets/logis/logis-hotels-mobile.png",
+            "assets/logis/mockup-coffret-2.png"
+          ]
+        }
+      ]
     }
   ]
   
