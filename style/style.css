@@ -775,7 +775,7 @@
       flex-direction: row;   /* reste en ligne */
       flex-wrap: wrap;
       justify-content: center; /* rester centré */
-      gap: 15px;
+      gap: 25px;
     }
     
     .card {

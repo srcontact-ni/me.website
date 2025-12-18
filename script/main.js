@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Scroll vers section depuis sous-menu services (liens de type #seo, #content, etc.)
+  // Scroll vers section depuis sous-menu services (#seo, #content…)
   document.querySelectorAll(".submenu a").forEach(link => {
     link.addEventListener("click", e => {
       const href = link.getAttribute("href");
@@ -95,16 +95,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==============================
   // SERVICES MOBILE : scroll au doigt
   // ==============================
-  // Rien à faire ici, tout est géré par le CSS (overflow-x: auto).
+  // Géré uniquement par le CSS (overflow-x: auto sur .services-list)
 
   // ==============================
-  // CLIC SUR LOGO / H1 ACCUEIL
+  // CLIC SUR LOGO
   // ==============================
   const accueilBtn = document.querySelector(".nav-logo a");
   if (accueilBtn) {
     accueilBtn.addEventListener("click", e => {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.location.href = "index.html";
     });
   }
 
@@ -113,7 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==============================
   // PAGE PROJET UNIQUEMENT (project.html)
   // ==============================
-  // On détecte la présence de projectTitle pour ne pas lancer ça sur la home.
   const projectTitleEl = document.getElementById("projectTitle");
   if (projectTitleEl) {
     let projectsData = [];
@@ -193,7 +192,6 @@ document.addEventListener("DOMContentLoaded", () => {
       ).join("");
     }
 
-    // Infos statiques (secteur, localisation, durée, client, lien)
     const secteurEl      = document.getElementById("projectSecteur");
     const localisationEl = document.getElementById("projectLocalisation");
     const dureeEl        = document.getElementById("projectDuree");
@@ -211,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==============================
-  // FONCTION GALERIE (project.html)
+  // GALERIE
   // ==============================
   function renderGallery(project) {
     const container = document.getElementById("galleryContainer");
@@ -234,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==============================
-  // AUTRES RÉALISATIONS (project.html)
+  // AUTRES RÉALISATIONS
   // ==============================
   function renderRelatedProjects(projects, currentId) {
     const related = document.getElementById("relatedProjects");
