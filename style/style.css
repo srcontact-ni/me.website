@@ -1,6 +1,6 @@
 /* ==========================================================================
    1. RESET & BASE
-   ========================================================================== */
+   ========================================================================= */
    * {
     box-sizing: border-box;
   }
@@ -20,7 +20,7 @@
   
   /* ==========================================================================
      2. CONTAINER GLOBAL
-     ========================================================================== */
+     ========================================================================= */
   .container-width {
     max-width: 1000px;
     margin: 0 auto;
@@ -29,7 +29,7 @@
   
   /* ==========================================================================
      3. LAYOUT PRINCIPAL
-     ========================================================================== */
+     ========================================================================= */
   main {
     flex: 1;
     padding: 20px 0;
@@ -41,7 +41,7 @@
   
   /* ==========================================================================
      4. TYPOGRAPHIE
-     ========================================================================== */
+     ========================================================================= */
   h1, h2, h3 {
     margin: 0 0 15px 0;
   }
@@ -52,7 +52,7 @@
   
   /* ==========================================================================
      5. NAVBAR
-     ========================================================================== */
+     ========================================================================= */
   .navbar {
     background: #222;
     color: #fff;
@@ -130,7 +130,7 @@
   
   /* ==========================================================================
      6. FOOTER
-     ========================================================================== */
+     ========================================================================= */
   .footer {
     background: #1a1a1a;
     color: #fff;
@@ -199,7 +199,7 @@
   
   /* ==========================================================================
      7. SECTIONS GÉNÉRALES
-     ========================================================================== */
+     ========================================================================= */
   section {
     padding: 10px 0;
     width: 100%;
@@ -215,7 +215,7 @@
   
   /* ==========================================================================
      8. HERO SECTION
-     ========================================================================== */
+     ========================================================================= */
   .hero-section {
     display: flex;
     align-items: center;
@@ -253,7 +253,7 @@
   
   /* ==========================================================================
      9. SERVICES SECTION
-     ========================================================================== */
+     ========================================================================= */
   .services-container {
     display: flex;
     justify-content: flex-start;
@@ -307,27 +307,30 @@
   }
   
   /* ==========================================================================
-     10. RÉALISATIONS CARDS
-     ========================================================================== */
-  .realisations {
+     10. RÉALISATIONS CARDS - ZÉRO SOULIGNEMENT + MOCKUPS CENTRÉS
+     ========================================================================= */
+  .realisations,
+  #relatedProjects {
     text-align: center;
   }
   
-  /* Liens et textes non soulignés dans les réalisations */
-  .realisations a {
-    text-decoration: none;
-    color: inherit;
+  /* ZÉRO SOULIGNEMENT partout (index + project pages) */
+  .realisations a,
+  #relatedProjects a,
+  .card a,
+  .card-link,
+  .card-content h3,
+  .card-content p,
+  .card-content * {
+    text-decoration: none !important;
+    color: inherit !important;
   }
   
-  .realisations a:hover {
-    text-decoration: none;
-  }
-  
-  /* Au cas où un navigateur force encore l’underline */
-  .realisations .card-content h3,
-  .realisations .card-content p,
-  .realisations .tag {
-    text-decoration: none;
+  .realisations a:hover,
+  #relatedProjects a:hover,
+  .card a:hover,
+  .card-link:hover {
+    text-decoration: none !important;
   }
   
   .cards-container {
@@ -345,11 +348,10 @@
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     overflow: hidden;
-    max-height: 500px;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
+    text-decoration: none !important;
   }
   
   .card:hover {
@@ -357,19 +359,24 @@
     box-shadow: 0 6px 16px rgba(0,0,0,0.15);
   }
   
+  /* MOCKUPS PHONE/ORDI CENTRÉS (index + autres réalisations) */
   .card-visual {
     width: 100%;
     height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f5f5f5;
+    background: #f8f9fa; /* Fond gris clair */
+    padding: 15px;
   }
   
   .card-visual img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
+    max-width: 85%;
+    max-height: 85%;
+    height: auto;
+    width: auto;
+    object-fit: contain; /* Mockup entier VISIBLE */
+    display: block;
   }
   
   .card-content {
@@ -410,8 +417,7 @@
   
   /* ==========================================================================
      10bis. PROJET DÉTAIL
-     ========================================================================== */
-  
+     ========================================================================= */
   .project-detail { 
     max-width: 1100px; 
     margin: 0 auto; 
@@ -508,32 +514,33 @@
     font-weight: 500;
   } 
   
-/* ==========================================================================
-   Outils utilisés - Version SIMPLIFIÉE (sans texte, logos carrés)
-   ========================================================================= */
-   .tools-list {
+  /* ==========================================================================
+     Outils utilisés - Version SIMPLIFIÉE (sans texte, logos carrés)
+     ========================================================================= */
+  .tools-list {
     margin: 20px 0 30px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
     gap: 12px;
+    max-width: 500px;
   }
   
   .tool-item {
-    aspect-ratio: 1; /* Carré parfait */
+    aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
     transition: all 0.2s ease;
-    background: none; /* Suppression fond card */
-    padding: 0; /* Suppression padding */
-    box-shadow: none; /* Suppression ombre */
+    background: none;
+    padding: 0;
+    box-shadow: none;
     width: auto;
   }
   
   .tool-item:hover {
     transform: scale(1.08);
-    background: rgba(66, 123, 255, 0.08); /* Bleu très léger au hover */
+    background: rgba(66, 123, 255, 0.08);
   }
   
   .tool-item img {
@@ -541,20 +548,19 @@
     height: 100%;
     max-width: 48px;
     max-height: 48px;
-    object-fit: contain; /* Proportions respectées */
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Ombre subtile logo */
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
   }
   
-  /* Suppression du span texte (plus utilisé) */
   .tool-item span {
     display: none;
-  }  
+  }
   
-/* ==========================================================================
-   GALERIE PROJET - Version alternée texte/image (2x2)
-   ========================================================================= */
-   .project-gallery {
-    margin-top: 5px;
+  /* ==========================================================================
+     GALERIE PROJET - Mockups centrés
+     ========================================================================= */
+  .project-gallery {
+    margin-top: 40px;
   }
   
   .project-gallery h3 {
@@ -592,8 +598,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f8f9fa; /* Fond gris clair pour mockups */
-    padding: 10px;       /* Marge interne */
+    background: #f8f9fa;
+    padding: 10px;
   }
   
   .gallery-image:hover {
@@ -601,26 +607,26 @@
   }
   
   .gallery-image img {
-    max-width: 90%;      /* Mockup ne touche pas les bords */
-    max-height: 90%;     /* Hauteur max pour phone/ordi */
-    height: auto;        /* Garde proportions mockup */
-    width: auto;         /* Garde proportions mockup */
-    object-fit: contain; /* ← CLÉ : mockup entier VISIBLE */
+    max-width: 90%;
+    max-height: 90%;
+    height: auto;
+    width: auto;
+    object-fit: contain;
     display: block;
-  }  
+  }
   
-  /* SUPPRIME l'ancien CSS galerie-block / gallery-card */
+  /* Cache anciens styles galerie */
   .gallery-block,
-  .gallery-card { display: none !important; }  
+  .gallery-card { display: none !important; }
   
   /* ==========================================================================
      11. TIMELINE MES INFOS
-     ========================================================================== */
+     ========================================================================= */
   .timeline-section {
     padding: 60px 20px;
     background-color: #f9f9f9;
   }
-    
+  
   .timeline-section h2 {
     text-align: center;
     margin-bottom: 40px;
@@ -669,20 +675,20 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     max-width: 700px; 
   }
-   
+  
   .timeline-content h3 {
     margin: 0;
     font-size: 1.2rem;
     font-weight: 600;
   }
-   
+  
   .timeline-date {
     display: inline-block;
     margin-top: 6px;
     font-size: 0.9rem;
     color: #777;
   }
-   
+  
   .timeline-content p {
     margin-top: 10px;
     font-size: 0.95rem;
@@ -692,338 +698,300 @@
   
   /* ==========================================================================
      12. CONTACT
-     ========================================================================== */
-.contact-section {
-  padding: 80px 0;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.contact-section h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.contact-intro {
-  max-width: 520px;
-  text-align: center;
-  margin-bottom: 30px;
-  color: #555;
-  line-height: 1.5;
-  font-size: 0.95rem;
-}
-
-/* Carte formulaire épurée */
-.contact-form {
-  width: 100%;
-  max-width: 560px;
-  background-color: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #eee;
-  padding: 28px 28px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* Ligne avec 2 champs côte à côte sur desktop (Nom / Email) */
-.form-row {
-  display: flex;
-  gap: 16px;
-}
-
-.form-row .form-group {
-  flex: 1;
-}
-
-/* Groupes de champs */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.form-group label {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #444;
-}
-
-.form-group input,
-.form-group textarea {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 10px 12px;
-  font-size: 0.95rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-  background-color: #fafafa;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #999;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #427BFF;
-  box-shadow: 0 0 0 2px rgba(66, 123, 255, 0.15);
-  background-color: #fff;
-}
-
-/* Consentement RGPD */
-.form-consent {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 0.85rem;
-  color: #555;
-  margin-top: 4px;
-}
-
-.form-consent input[type="checkbox"] {
-  margin-top: 3px;
-}
-
-/* Bouton – cohérent avec le hero */
-.btn-submit {
-  align-self: flex-start;
-  margin-top: 8px;
-  background-color: #427BFF;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 999px;
-  border: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  letter-spacing: 0.01em;
-  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-}
-
-.btn-submit:hover {
-  background-color: #2f66e0;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(47, 102, 224, 0.25);
-}
-
-.btn-submit:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-/* Message de retour */
-.form-response {
-  margin-top: 8px;
-  font-size: 0.85rem;
-  color: #333;
-}
-
-/* ==========================================================================
-     13. MEDIA QUERIES (Mobile First)
-     ========================================================================== */
-@media (max-width: 768px) {
-  /* Container */
-  .container-width {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  /* Navbar mobile */
-  .nav-toggle {
-    display: block;
-  }
-  
-  .nav-links {
-    max-width: 200px;
-    position: fixed;
-    top: 0;
-    left: -100%;
-    height: 100vh;
-    width: 250px;
-    background: #222;
+     ========================================================================= */
+  .contact-section {
+    padding: 80px 0;
+    background-color: #fff;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding-top: 60px;
-    transition: left 0.3s ease;
-    z-index: 1000;
+    align-items: center;
   }
   
-  .nav-links.active {
-    left: 0;
+  .contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
   }
   
-  .nav-links li {
-    margin: 20px;
+  .contact-intro {
+    max-width: 520px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+    line-height: 1.5;
+    font-size: 0.95rem;
   }
   
-  body.menu-open {
-    overflow: hidden;
-  }
-  
-  /* Hero mobile */
-  .hero-section {
+  .contact-form {
+    width: 100%;
+    max-width: 560px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #eee;
+    padding: 28px 28px 24px;
+    display: flex;
     flex-direction: column;
-    text-align: left;
-  }
-  
-  .hero-content h1 {
-    font-size: 40px;
-  }
-  
-  .hero-visual img {
-    display: none;
-  }
-
-  /* Services mobile : liste scrollable, détail en dessous */
-  .services-container {
-    flex-direction: column;
-    align-items: stretch;
     gap: 16px;
   }
-
-  .services-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 12px;
-    width: 100%;
-    padding: 10px 10px 16px;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .services-list::-webkit-scrollbar {
-    display: none;
-  }
-
-  .service-item {
-    flex: 0 0 auto;
-    min-width: 200px;
-    max-width: 260px;
-    text-align: center;
-    scroll-snap-align: start;
-  }
-
-  .service-detail {
-    width: 100%;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    border-radius: 16px;
-  }
-
-  /* Footer mobile */
-  .footer-top {
-    flex-direction: column;
-    align-items: flex-start;
-  }
   
-  /* Cards mobile */
-  .cards-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-  }
-  
-  .card {
-    width: 100%;
-    max-height: none;
-  }
-
-  .timeline::before {
-    left: 10px;
-  }
-  
-  .timeline-item {
-    padding-left: 40px;
-  }
-  
-  .timeline-dot {
-    left: 4px;
-  }
-
-  /* Contact mobile */
-  .contact-section {
-    padding: 60px 0;
-  }
-
-  .contact-form {
-    padding: 22px 18px 20px;
-    border-radius: 16px;
-  }
-
   .form-row {
-    flex-direction: column;
-  }
-
-  .btn-submit {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-  }
-
-  /* Projet détail – mobile */
-  .project-detail {
-    padding: 20px 0;
-  }
-
-  .project-grid {
-    display: block;              /* on empile main + aside */
-  }
-
-  .project-main {
-    margin-bottom: 20px;
-  }
-
-  .project-card-static {
-    margin-bottom: 30px;         /* card infos juste au-dessus de la galerie */
-  }
-
-  .gallery-grid {
-    justify-content: center;
-  }
-
-  .gallery-card {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .service-item {
-    flex: 1 1 100%;
-  }
-
-  .container-width {
-    padding: 0 15px;
-    max-width: 500px;
-  }
-}
-
-@media (max-width: 320px) {
-  .service-item {
-    flex: 1 1 100%;
-  }
-
-  .container-width {
-    padding: 0 15px;
-    max-width: 500px;
-  }
-
-  main {
-    flex: 1;
-    padding: 20px 0;
+    display: flex;
+    gap: 16px;
   }
   
-  main .container-width {
-    padding: 20px 0;
+  .form-row .form-group {
+    flex: 1;
   }
-}
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #444;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    background-color: #fafafa;
+  }
+  
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #999;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #427BFF;
+    box-shadow: 0 0 0 2px rgba(66, 123, 255, 0.15);
+    background-color: #fff;
+  }
+  
+  .form-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 4px;
+  }
+  
+  .form-consent input[type="checkbox"] {
+    margin-top: 3px;
+  }
+  
+  .btn-submit {
+    align-self: flex-start;
+    margin-top: 8px;
+    background-color: #427BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+    transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  }
+  
+  .btn-submit:hover {
+    background-color: #2f66e0;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(47, 102, 224, 0.25);
+  }
+  
+  .btn-submit:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+  
+  .form-response {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #333;
+  }
+  
+  /* ==========================================================================
+     13. MEDIA QUERIES
+     ========================================================================= */
+  @media (max-width: 768px) {
+    .container-width {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .nav-toggle {
+      display: block;
+    }
+    
+    .nav-links {
+      max-width: 200px;
+      position: fixed;
+      top: 0;
+      left: -100%;
+      height: 100vh;
+      width: 250px;
+      background: #222;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 60px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+    
+    .nav-links.active {
+      left: 0;
+    }
+    
+    .nav-links li {
+      margin: 20px;
+    }
+    
+    body.menu-open {
+      overflow: hidden;
+    }
+    
+    .hero-section {
+      flex-direction: column;
+      text-align: left;
+    }
+    
+    .hero-content h1 {
+      font-size: 40px;
+    }
+    
+    .hero-visual img {
+      display: none;
+    }
+  
+    .services-container {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+    }
+  
+    .services-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 12px;
+      width: 100%;
+      padding: 10px 10px 16px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+  
+    .services-list::-webkit-scrollbar {
+      display: none;
+    }
+  
+    .service-item {
+      flex: 0 0 auto;
+      min-width: 200px;
+      max-width: 260px;
+      text-align: center;
+      scroll-snap-align: start;
+    }
+  
+    .service-detail {
+      width: 100%;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      border-radius: 16px;
+    }
+  
+    .footer-top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .cards-container {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+    
+    .card {
+      width: 100%;
+      max-height: none;
+    }
+  
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  
+    .project-detail {
+      padding: 20px 0;
+    }
+  
+    .project-grid {
+      display: block;
+    }
+  
+    .project-main {
+      margin-bottom: 20px;
+    }
+  
+    .project-card-static {
+      margin-bottom: 30px;
+    }
+  
+    .contact-section {
+      padding: 60px 0;
+    }
+  
+    .contact-form {
+      padding: 22px 18px 20px;
+      border-radius: 16px;
+    }
+  
+    .form-row {
+      flex-direction: column;
+    }
+  
+    .btn-submit {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .service-item {
+      flex: 1 1 100%;
+    }
+  
+    .container-width {
+      padding: 0 15px;
+      max-width: 500px;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .service-item {
+      flex: 1 1 100%;
+    }
+  
+    .container-width {
+      padding: 0 15px;
+      max-width: 500px;
+    }
+  }
+  
