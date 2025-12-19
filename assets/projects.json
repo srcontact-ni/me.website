@@ -36,16 +36,15 @@
       "LienExterne": "https://logishotels.example",
       "gallery": [
         {
-          "category": "Pages coffrets cadeaux",
+          "category": "Création de page d'atterissage + contenus",
           "images": [
-            "assets/img/logishotels/logis-hotels-mobile.png",
-            "assets/logis/mockup-coffret-2.png"
+            "assets/img/logishotels/restaurants-logis-hotels-mobile.png"
           ]
         },
         {
-          "category": "E-merchandising offres",
+          "category": "E-merchandising coffret cadeau",
           "images": [
-            "assets/img/logishotels/nos-restaurants.png"
+            "assets/img/logishotels/coffret-cadeau-logis-hotel.png"
           ]
         }
       ]      
