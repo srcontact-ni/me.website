@@ -516,7 +516,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
     gap: 12px;
-    max-width: 500px;
   }
   
   .tool-item {
@@ -555,7 +554,7 @@
    GALERIE PROJET - Version alternée texte/image (2x2)
    ========================================================================= */
    .project-gallery {
-    margin-top: 40px;
+    margin-top: 5px;
   }
   
   .project-gallery h3 {
@@ -589,6 +588,10 @@
     overflow: hidden;
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    height: 200px;  /* ← Hauteur fixe comme les cards */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .gallery-image:hover {
@@ -597,9 +600,11 @@
   
   .gallery-image img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
+    height: 100%;  /* ← Rempli tout le conteneur */
+    object-fit: cover;  /* Comme tes cards */
+    object-position: center;
+    display: block;
+  }  
   
   /* SUPPRIME l'ancien CSS galerie-block / gallery-card */
   .gallery-block,
