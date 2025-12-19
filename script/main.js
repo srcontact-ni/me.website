@@ -237,31 +237,26 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==============================
   // AUTRES RÉALISATIONS
   // ==============================
-  function renderRelatedProjects(projects, currentId) {
-    const related = document.getElementById("relatedProjects");
-    if (!related) return;
-
-    related.innerHTML = "";
-
-    projects
-      .filter(p => p.ID !== currentId)
-      .forEach(p => {
-        const card = document.createElement("article");
-        card.className = "card";
-        card.innerHTML = `
-          <a href="project.html?id=${encodeURIComponent(p.ID)}" class="card-link">
-            <div class="card-visual">
-              <img src="${p.Image}" alt="${p.NomProjet}" />
-            </div>
-            <div class="card-content">
-              <h3>${p.NomProjet}</h3>
-              <p>${p.ShortDesc}</p>
-            </div>
-          </a>
-        `;
-        related.appendChild(card);
+  function renderGallery(project) {
+    const container = document.getElementById("galleryContainer");
+    if (!container || !project.gallery) return;
+  
+    const items = [];
+    project.gallery.forEach(section => {
+      items.push({ type: 'text', titre: section.category });
+      section.images.slice(0, 2).forEach(img => {
+        items.push({ type: 'image', src: img, alt: section.category });
       });
-  }
+    });
+  
+    const galerieHtml = items.slice(0, 4).map((item, index) => 
+      item.type === 'text' 
+        ? `<div class="gallery-title">${item.titre}</div>`
+        : `<div class="gallery-image"><img src="${item.src}" alt="${item.alt}" loading="lazy"></div>`
+    ).join('');
+  
+    container.innerHTML = `<div class="gallery-grid">${galerieHtml}</div>`;
+  }  
 
   // ------------------------------
   // FORMULAIRE DE CONTACT
