@@ -551,45 +551,59 @@
     display: none;
   }  
   
-  /* Galerie projet */
-  .project-gallery {
+/* ==========================================================================
+   GALERIE PROJET - Version alternée texte/image (2x2)
+   ========================================================================= */
+   .project-gallery {
     margin-top: 40px;
   }
   
   .project-gallery h3 {
-    margin-bottom: 15px;
-  }
-  
-  .gallery-block {
-    margin-bottom: 30px;
-    text-align: left;
-  }
-  
-  .gallery-block h4 {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
+    margin-bottom: 25px;
+    font-size: 1.3rem;
   }
   
   .gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    max-width: 900px;
   }
   
-  .gallery-card {
-    flex: 1 1 220px;
-    max-width: 280px;
+  .gallery-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 20px;
+    background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+    border-radius: 12px;
+    border-left: 4px solid #427BFF;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #222;
+    text-align: center;
+  }
+  
+  .gallery-image {
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    background: #fff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
   }
   
-  .gallery-card img {
-    width: 100%;
-    height: auto;
-    display: block;
+  .gallery-image:hover {
+    transform: scale(1.02);
   }
+  
+  .gallery-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  /* SUPPRIME l'ancien CSS galerie-block / gallery-card */
+  .gallery-block,
+  .gallery-card { display: none !important; }  
   
   /* ==========================================================================
      11. TIMELINE MES INFOS

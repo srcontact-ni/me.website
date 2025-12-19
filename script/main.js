@@ -202,24 +202,36 @@ document.addEventListener("DOMContentLoaded", () => {
   // ==============================
   // GALERIE
   // ==============================
+// ==============================
+  // GALERIE - NOUVELLE VERSION alternée
+  // ==============================
   function renderGallery(project) {
     const container = document.getElementById("galleryContainer");
     if (!container || !project.gallery) return;
 
-    container.innerHTML = project.gallery.map(section => {
-      const imgs = section.images.map(img =>
-        `<div class="gallery-card">
-           <img src="${img}" alt="${project.NomProjet}">
-         </div>`
-      ).join("");
+    // Transforme le JSON gallery en alternance texte/image
+    const alternatedItems = [];
+    
+    project.gallery.forEach(section => {
+      // Ajoute le titre de catégorie comme texte
+      alternatedItems.push({ type: 'text', titre: section.category });
+      
+      // Ajoute les 1-2 premières images
+      section.images.slice(0, 2).forEach(img => {
+        alternatedItems.push({ type: 'image', src: img, alt: section.category });
+      });
+    });
 
-      return `
-        <div class="gallery-block">
-          <h4>${section.category}</h4>
-          <div class="gallery-grid">${imgs}</div>
-        </div>
-      `;
-    }).join("");
+    // Limite à 8 éléments max (4x2 grille)
+    const limitedItems = alternatedItems.slice(0, 8);
+
+    const galerieHtml = limitedItems.map(item => 
+      item.type === 'text' 
+        ? `<div class="gallery-title">${item.titre}</div>`
+        : `<div class="gallery-image"><img src="${item.src}" alt="${item.alt}" loading="lazy"></div>`
+    ).join('');
+
+    container.innerHTML = `<div class="gallery-grid">${galerieHtml}</div>`;
   }
 
   // ==============================
