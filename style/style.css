@@ -588,10 +588,12 @@
     overflow: hidden;
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
-    height: 200px;           /* Hauteur fixe */
-    display: flex;           /* ← CLÉ centrage */
-    align-items: center;     /* ← Centre VERTICAL */
-    justify-content: center; /* ← Centre HORIZONTAL */
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa; /* Fond gris clair pour mockups */
+    padding: 10px;       /* Marge interne */
   }
   
   .gallery-image:hover {
@@ -599,10 +601,11 @@
   }
   
   .gallery-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;       /* Remplit parfaitement */
-    object-position: center; /* Partie importante au centre */
+    max-width: 90%;      /* Mockup ne touche pas les bords */
+    max-height: 90%;     /* Hauteur max pour phone/ordi */
+    height: auto;        /* Garde proportions mockup */
+    width: auto;         /* Garde proportions mockup */
+    object-fit: contain; /* ← CLÉ : mockup entier VISIBLE */
     display: block;
   }  
   
